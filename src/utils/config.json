@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "jara72614",
+    "database": "restresumeapi",
+    "port":"5432",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "john",
+    "password": "password",
+    "database": "adoptApi",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "john",
+    "password": "password",
+    "database": "adoptApi",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

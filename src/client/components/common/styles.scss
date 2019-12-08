@@ -1,0 +1,95 @@
+@import '../../styles/.animations';
+
+.btn {
+    padding: 1rem 2rem;
+    border: 1px solid #666;
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+
+    &.primary {
+        background-color: blue;
+    }
+
+    &.success {
+        background-color: green;
+    }
+
+    &.warning {
+        background-color: yellow;
+        color: #666;
+    }
+
+    &.error {
+        background-color: red;
+    }
+
+    &.default {
+        background-color: white;
+        color: #666;
+    }
+}
+
+.app-form-control {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 1rem 0;
+
+    > span {
+        display: inline-block;
+        color: #666;
+        font-weight: light;
+    }
+
+    > input {
+        width: 100%;
+        padding: 1rem;
+        border: solid 1px #ccc;
+        background-color: white;
+        border-radius: 3px;
+        color: #666;
+        font-weight: normal;
+
+        &::placeholder {
+            color: #999;
+            font-style: italic;
+            font-weight: 100;
+        }
+    }
+
+    &__isRequired {
+        display: inline-block;
+        margin-left: 0.5rem;
+        color: red;
+        font-weight: bolder;
+    }
+
+    &__feedback {
+        animation-delay: 1s;
+        animation-duration: 2s;
+        animation-name: showMessage;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 2rem;
+    }
+
+    &.has-error {
+        span {
+            color: red;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input {
+            border: solid 1px red;
+
+            &::placeholder {
+                color: red;
+            }
+        }
+    }
+}
+
+// 5510548020 ext 2{

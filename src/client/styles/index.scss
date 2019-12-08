@@ -1,0 +1,26 @@
+@import 'normalize.scss/normalize';
+
+@import './typos';
+
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 62.5%;
+}
+
+body {
+    min-width: 400px;
+    max-width: 100vw;
+    background-color: #eee;
+    font-family: 'Roboto', serif, sans-serif;
+    font-size: 1.6rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}

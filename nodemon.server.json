@@ -1,0 +1,38 @@
+{
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "verbose": true,
+    "execMap": {
+      "js": "npm run start"
+    },
+    "events": {
+      "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+    },
+    "watch": [
+        "src/*.ts",
+        "src/**/*.ts",
+        "src/**/**/*.ts",
+        "src/**/**/**/*.ts",
+        "src/**/**/**/**/*.ts",
+        "src/**/**/**/**/**/*.ts",
+        "src/**/**/**/**/**/**/*.ts",
+      "test/fixtures/",
+      "test/samples/"
+    ],
+    "env": {
+        "NODE_ENV": "production",
+        "PUBLIC_URL": "/",
+        "DB_USER": "john",
+        "DB_PASSWORD": "password",
+        "DB_NAME": "rest_resume_api",
+        "DB_HOST": "localhost",
+        "DB_PORT": 54320,
+        "PORT": 3000,
+        "DIALET":" postgres"
+    },
+    "ext": "ts,js,json",
+    "exec": "webpack --mode=production --config=config/webpack.server.js && node ./dist/main-bundle.js"
+  }
