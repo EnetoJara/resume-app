@@ -13,7 +13,7 @@
         "sourceMap": true, /* Generates corresponding '.map' file. */
         // "outFile": "./",                       /* Concatenate and emit output to single file. */
         "outDir": "./dist", /* Redirect output structure to the directory. */
-        "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+        "rootDir": ".",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
         // "composite": true,                     /* Enable project compilation */
         // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
         // "removeComments": true,                /* Do not emit comments to output. */
@@ -74,15 +74,16 @@
         "pretty": true
     },
     "include": [
-        "./src/*.ts",
+        "./src/client.tsx",
+        "./src/express.ts",
+        "./src/server.ts",
         "./src/**/*.ts",
         "./src/**/**/*.ts",
         "./src/**/**/**/*.ts",
-        "./config/*.ts", "src/client/modules/user/user.workers.tsx", "src/client/modules/user/user.watchers.tsx", "src/client/modules/user/user.reducer.tsx", "src/client/modules/user/user.api.tsx", "src/client/modules/user/user.actions.tsx", "src/client/modules/sagas.tsx", "src/client/containers/register.container.tsx", "src/components/common/index.tsx", "src/client/api/axios.tsx", "src/client/api/Api.tsx", "src/client/api/api-config.tsx",
+        "./mocha/**/*.test.ts",
+        "./config/*.ts", "src/client/modules/user/user.workers.tsx", "src/client/modules/user/user.watchers.tsx", "src/client/modules/user/user.reducer.tsx", "src/client/modules/user/user.api.tsx", "src/client/modules/user/user.actions.tsx", "src/client/modules/sagas.tsx", "src/client/containers/register.container.tsx", "src/components/common/index.tsx", "src/client/api/axios.tsx", "src/client/api/Api.tsx", "src/client/api/api-config.tsx", "src/serviceWorker.js",
     ],
     "exclude": [
         "./node_modules/",
-        "./dist/",
-        "src/serviceWorker.ts"
-    ]
+        "./dist/"    ]
 }

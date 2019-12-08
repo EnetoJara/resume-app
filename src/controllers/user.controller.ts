@@ -1,25 +1,14 @@
 import { NextFunction, Request, Response } from "express";
-import {
-    BAD_REQUEST,
-    CREATED,
-    getStatusText,
-    INTERNAL_SERVER_ERROR,
-    NOT_FOUND,
-    OK,
-    UNAUTHORIZED,
-} from "http-status-codes";
+import { BAD_REQUEST, CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from "http-status-codes";
 import { Transaction } from "sequelize";
 import { DB } from "../models/index";
 import { UserModel } from "../models/users";
-import { LoginCredentials, UserRegister } from "../types/restApi";
+import { UserRegister } from "../types/restApi";
 import { encriptPassword, isEqualsPassword } from "../utils/encripter";
 import { createToken, validateToken } from "../utils/passport";
 import { apiResponse } from "../utils/response";
-import {
-    isTokenExpired,
-    validateLogin,
-    validateUserRegistration,
-} from "../utils/validator";
+import { isTokenExpired, validateLogin, validateUserRegistration } from "../utils/validator";
+import { logger } from "./../utils/logger";
 
 export class UserController {
     public constructor (private db: DB) {
@@ -77,7 +66,7 @@ export class UserController {
     }
     public register (req: Request, res: Response) {
         const user = <UserRegister>req.body;
-        console.log("USER: ", user);
+        console.log("USER: ", req.headers);
         const erros = validateUserRegistration(user);
 
         if (erros.length > 0) {
@@ -127,11 +116,14 @@ export class UserController {
     }
 
     public async login (req: Request, res: Response) {
+        logger.info(`login ${req.body.email}`);
         try {
-            const loginCredentials = <LoginCredentials>req.body;
+            const loginCredentials = req.body;
 
             const errors = validateLogin(loginCredentials);
             if (errors.length > 0) {
+                logger.warn(errors);
+
                 return apiResponse(res, errors, BAD_REQUEST);
             }
 
@@ -140,6 +132,8 @@ export class UserController {
             });
 
             if (isThere === null) {
+                logger.warn(`user not found: ${loginCredentials.email}`);
+
                 return apiResponse<string>(
                     res,
                     getStatusText(NOT_FOUND),
@@ -153,6 +147,8 @@ export class UserController {
             );
 
             if (!samePassword) {
+                logger.warn("wrong password");
+
                 return apiResponse<string>(
                     res,
                     getStatusText(NOT_FOUND),
@@ -175,7 +171,7 @@ export class UserController {
                 OK
             );
         } catch (error) {
-            console.log(error);
+            logger.error(error);
 
             return apiResponse<Error>(res, error, INTERNAL_SERVER_ERROR);
         }

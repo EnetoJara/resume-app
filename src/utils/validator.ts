@@ -1,8 +1,10 @@
 import { isAlpha, isAlphanumeric, isEmail, isEmpty, isLength } from "validator";
 import { JwtError, LoginCredentials } from "../types/restApi";
 import { UserRegister } from "./../types/restApi";
+import { logger } from "./logger";
 
 export function validateLogin (credentials: LoginCredentials) {
+    logger.info("validateLogin");
     const errors: any = [];
 
     const { email = "", password = "" } = credentials;
@@ -18,6 +20,8 @@ export function validateLogin (credentials: LoginCredentials) {
     } else if (!isLength(password, { min: 5, max: 15 })) {
         errors.push({ password: "passwords must be from 5 to 15 characters" });
     }
+
+    logger.info(errors);
 
     return errors;
 }
@@ -67,13 +71,16 @@ export function validateUserRegistration (user: UserRegister) {
         errors.push({ name: "name must be less than 50 chars" });
     }
 
-    if (
+    if (!isEmpty(middleName) && !isAlpha(middleName)) {
+        errors.push({
+            middleName: "middlename should be valid",
+        });
+    } else if (
         !isEmpty(middleName) &&
-        (!isAlpha(middleName) || isLength(middleName, { min: 1, max: 50 }))
+        !isLength(middleName, { min: 1, max: 50 })
     ) {
         errors.push({
-            middleName:
-                "middlename should be valid and less than 50 characters",
+            middleName: "middlename should not be greater than 50 characters",
         });
     }
 

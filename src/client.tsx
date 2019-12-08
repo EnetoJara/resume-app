@@ -5,8 +5,8 @@ import { AppState } from "resume-client";
 import { App } from "./client/components/app";
 import rootSagas from "./client/modules/sagas";
 import { configureStore } from "./client/redux/store/dev";
-import * as serviceWorker from "./client/serviceWorker";
 import "./client/styles/index.scss";
+import * as serviceWorker from "./serviceWorker";
 
 const initialState: AppState = {
     user: {

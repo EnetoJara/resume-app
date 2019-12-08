@@ -8,7 +8,11 @@ import path from "path";
 import winston from "winston";
 import { DB } from "./models/index";
 import { routes } from "./routes/index";
-import { clientErrorHandler, errorHandler, logging } from "./utils/error-handler";
+import {
+    clientErrorHandler,
+    errorHandler,
+    logging,
+} from "./utils/error-handler";
 import { logger } from "./utils/logger";
 
 export function serverConfig (db: DB): Application {

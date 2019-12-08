@@ -1,9 +1,13 @@
 const webpackNodeExternals = require("webpack-node-externals");
+const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const resolve = require("resolve");
+
 const path =require("path");
 
 module.exports = {
     entry: path.join(__dirname, "../src/server.ts"),
-    mode: "development",
+    mode: process.env.NODE_ENV,
     node: {
         __filename: false,
         __dirname: false
@@ -57,4 +61,27 @@ module.exports = {
             },
         ],
     },
+    plugins:[
+        process.env.NODE_ENV === "production" && new ForkTsCheckerWebpackPlugin({
+            typescript: resolve.sync('typescript', {
+              basedir: path.join(__dirname, "../node_modules/"),
+            }),
+            async: false,
+            useTypescriptIncrementalApi: true,
+            checkSyntacticErrors: true,
+            resolveModuleNameModule: undefined,
+            resolveTypeReferenceDirectiveModule: undefined,
+            tsconfig: path.join(__dirname, "../tsconfig.json"),
+            reportFiles: [
+              '**',
+              '!**/__tests__/**',
+              '!**/?(*.)(spec|test).*',
+              '!**/src/setupProxy.*',
+              '!**/src/setupTests.*',
+            ],
+            silent: true,
+            // The formatter is invoked directly in WebpackDevServerUtils during development
+            formatter: typescriptFormatter,
+          }),
+    ]
 }

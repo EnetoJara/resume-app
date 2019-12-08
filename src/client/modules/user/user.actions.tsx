@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { AppActions, RegisterCredentials, REGISTER_USER } from "resume-client";
+import { AppActions, RegisterCredentials, REGISTER_USER } from "../../../types/resume-client";
 
 export function registerUser (
     user: RegisterCredentials

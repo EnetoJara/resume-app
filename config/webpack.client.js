@@ -1,6 +1,4 @@
-
-const fs = require('fs');
-const isWsl = require('is-wsl');
+const resolve = require("resolve");
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -14,14 +12,16 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
+const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const  isEnvProduction = process.env.NODE_ENV === "production";
 console.log(isEnvProduction);
 module.exports = {
     target: "web",
-    entry: path.join(__dirname, "../src/app.tsx"),
+    entry: path.join(__dirname, "../src/client.tsx"),
     devtool: "source-map",
-    mode: "development",
+    mode: process.env.NODE_ENV,
     output: {
         filename: isEnvProduction
           ? 'js/[name].[contenthash:8].js'
@@ -221,6 +221,27 @@ module.exports = {
             ],
           }),
         // TypeScript type checking
+        isEnvProduction && new ForkTsCheckerWebpackPlugin({
+            typescript: resolve.sync('typescript', {
+              basedir: path.join(__dirname, "../node_modules/"),
+            }),
+            async: false,
+            useTypescriptIncrementalApi: true,
+            checkSyntacticErrors: true,
+            resolveModuleNameModule: undefined,
+            resolveTypeReferenceDirectiveModule: undefined,
+            tsconfig: path.join(__dirname, "../tsconfig.json"),
+            reportFiles: [
+              '**',
+              '!**/__tests__/**',
+              '!**/?(*.)(spec|test).*',
+              '!**/src/setupProxy.*',
+              '!**/src/setupTests.*',
+            ],
+            silent: true,
+            // The formatter is invoked directly in WebpackDevServerUtils during development
+            formatter: typescriptFormatter,
+          }),
       ].filter(Boolean),
       // Some libraries import Node modules but don't use them in the browser.
       // Tell Webpack to provide empty mocks for them so importing them works.
