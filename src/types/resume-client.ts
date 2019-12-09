@@ -38,12 +38,17 @@ export interface LoginCredentials {
 }
 
 export interface PostMethod {
-    <T, P>(url: string, data: T, config?: AxiosRequestConfig): AxiosPromise<
-        P
-    >;
+    <T, P>(url: string, data: T, config?: AxiosRequestConfig): AxiosPromise<P>;
 }
 
 export const REGISTER_USER = "user/register";
 export type REGISTER_USER = typeof REGISTER_USER;
+
+export const REGISTER_USER_SUCCESS = "user/register-success";
+export type REGISTER_USER_SUCCESS = typeof REGISTER_USER_SUCCESS;
+
+export const REGISTER_USER_FAILED = "user/register-failed";
+export type REGISTER_USER_FAILED = typeof REGISTER_USER_FAILED;
+
 export const LOGIN_USER = "user/login";
 export type LOGIN_USER = typeof LOGIN_USER;

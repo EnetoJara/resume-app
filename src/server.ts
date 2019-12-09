@@ -1,13 +1,16 @@
-import "@babel/register";
-import "@babel/runtime/regenerator";
-import "core-js";
-import "es6-promise/auto";
+require("@babel/register");
+require("es6-promise/auto");
 import http, { Server } from "http";
 import { serverConfig } from "./express";
 import { db } from "./models";
+import { logger } from "./utils/logger";
 
+db.sequelize
+    .sync()
+    .then(() => logger.info("sinced"))
+    .catch(error => logger.error(error));
 export const server: Server = http.createServer(serverConfig(db));
 
-server.listen(Number(process.env.PORT || 3001), () => {
+server.listen(Number(5000), () => {
     console.log("runnin");
 });

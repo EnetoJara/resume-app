@@ -23,7 +23,7 @@
       "test/samples/"
     ],
     "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "development",
         "PUBLIC_URL": "/",
         "DB_USER": "john",
         "DB_PASSWORD": "password",
@@ -34,5 +34,5 @@
         "DIALET":" postgres"
     },
     "ext": "ts,js,json",
-    "exec": "webpack --mode=production --config=config/webpack.server.js && node ./dist/main-bundle.js"
+    "exec": "webpack --mode=development --config=config/webpack.server.js && node ./dist/main-bundle.js"
   }

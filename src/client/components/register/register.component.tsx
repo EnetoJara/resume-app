@@ -20,27 +20,33 @@ export interface InputForm {
 }
 
 export class Register extends Component<RegisterProps, RegisterState> {
-    constructor (props: RegisterProps) {
-        super(props);
 
-        this.state = {
-            email: "",
-            name: "",
-            middleName: "",
-            lastName: "",
-            secondLastName: "",
-            password: "",
-            password2: ""
-        };
-        this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
-        this.onSubmitHandler = this.onSubmitHandler.bind(this);
-    }
-
+    state: RegisterState;
+   public constructor (props: RegisterProps) {
+       super(props);
+       this.state = {
+        email: "",
+        name: "",
+        middleName: "",
+        lastName: "",
+        secondLastName: "",
+        password: "",
+        password2: ""
+    };
+    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+    this.onCancelButtonHandler = this.onCancelButtonHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+   }
     onInputChangeHandler (evt: InputForm): void {
         const { value = "" } = evt.target;
         const { name = "" } = evt.target;
 
-        this.setState({ [name]: value });
+        if (name.includes("password")) {
+            this.setState({ [name]: value });
+        } else {
+            this.setState({ [name]: value.toUpperCase() });
+        }
+
     }
 
     onCancelButtonHandler (evt: FormEvent): void {

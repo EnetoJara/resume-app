@@ -61,8 +61,8 @@ module.exports = {
             },
         ],
     },
-    plugins:[
-        process.env.NODE_ENV === "production" && new ForkTsCheckerWebpackPlugin({
+    plugins: process.env.NODE_ENV === "production" ? [
+        new ForkTsCheckerWebpackPlugin({
             typescript: resolve.sync('typescript', {
               basedir: path.join(__dirname, "../node_modules/"),
             }),
@@ -83,5 +83,6 @@ module.exports = {
             // The formatter is invoked directly in WebpackDevServerUtils during development
             formatter: typescriptFormatter,
           }),
-    ]
+
+            ] : []
 }

@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import { BAD_REQUEST, CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from "http-status-codes";
-import { Transaction } from "sequelize";
 import { DB } from "../models/index";
 import { UserModel } from "../models/users";
 import { UserRegister } from "../types/restApi";
@@ -11,13 +10,17 @@ import { isTokenExpired, validateLogin, validateUserRegistration } from "../util
 import { logger } from "./../utils/logger";
 
 export class UserController {
-    public constructor (private db: DB) {
-        this.authMiddleware = this.authMiddleware.bind(this);
-        this.getAllUsers = this.getAllUsers.bind(this);
+    public constructor (public db: DB) {
         this.register = this.register.bind(this);
+        this.getAllUsers = this.getAllUsers.bind(this);
         this.login = this.login.bind(this);
     }
-    public authMiddleware (req: Request, res: Response, next: NextFunction) {
+
+    public authMiddleware (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ) {
         const token = req.headers.authorization;
         try {
             if (typeof token !== "string") {
@@ -66,22 +69,16 @@ export class UserController {
     }
     public register (req: Request, res: Response) {
         const user = <UserRegister>req.body;
-        console.log("USER: ", req.headers);
+        console.log("res.headers: ", req.headers);
         const erros = validateUserRegistration(user);
 
         if (erros.length > 0) {
             return apiResponse(res, erros, BAD_REQUEST);
         }
-        let trans: Transaction;
 
         return encriptPassword(user.password, 10)
             .then((passwordEncripted: string) => {
                 user.password = passwordEncripted;
-
-                return this.db.sequelize.transaction();
-            })
-            .then((t: Transaction) => {
-                trans = t;
 
                 return this.db.User.findOne<UserModel>({
                     where: { email: user.email },
@@ -89,15 +86,12 @@ export class UserController {
             })
             .then(saved => {
                 if (saved !== null) {
-                    trans.commit();
                     throw { code: BAD_REQUEST, message: "User already exists" };
                 }
 
                 return this.db.User.create({ ...user, active: true });
             })
             .then(() => {
-                trans.commit();
-
                 return apiResponse(
                     res,
                     { success: true, message: getStatusText(CREATED) },
@@ -109,7 +103,6 @@ export class UserController {
                     code = INTERNAL_SERVER_ERROR,
                     message = getStatusText(INTERNAL_SERVER_ERROR),
                 } = error;
-                typeof trans.rollback === "function" && trans.rollback();
 
                 return apiResponse(res, { success: false, message }, code);
             });

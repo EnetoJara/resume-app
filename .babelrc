@@ -1,12 +1,10 @@
 {
-        "presets": [
-            "@babel/preset-react",
-            "@babel/preset-typescript"
-        ],
-        "plugins": [
-            "@babel/plugin-proposal-object-rest-spread",
-            "@babel/plugin-transform-spread",
-            "@babel/plugin-transform-function-name",
-            "@babel/plugin-transform-arrow-functions"
-        ]
+    "presets": [
+        "@babel/preset-react",
+        "@babel/preset-typescript"
+    ],
+
+    "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+    ]
     }

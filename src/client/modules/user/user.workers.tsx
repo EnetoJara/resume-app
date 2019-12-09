@@ -1,4 +1,4 @@
-import { CREATED } from "http-status-codes";
+import { BAD_REQUEST } from "http-status-codes";
 import { call, put } from "redux-saga/effects";
 import { AppActions, RegisterCredentials, REGISTER_USER } from "resume-client";
 import { registerUserFailed, registerUserSuccess } from "./user.actions";
@@ -8,14 +8,10 @@ export function* registerUserWorker (
     action: AppActions<REGISTER_USER, RegisterCredentials>
 ) {
     try {
-        console.log(action.payload);
-        const registered = yield call(api.userRegister, action.payload);
-        console.log(registered);
-        if (registered === CREATED) {
-            yield put(registerUserSuccess());
-        }
+        yield call(api.gestisterUser, action.payload);
+        yield put(registerUserSuccess());
     } catch (error) {
-        console.error(error);
-        yield put(registerUserFailed(error));
+        const parsed = error.status === BAD_REQUEST ? {...error.response.data} : {...error}
+        yield put(registerUserFailed(parsed));
     }
 }
