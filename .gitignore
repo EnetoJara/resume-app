@@ -2,5 +2,5 @@ node_modules
 build
 dist
 private.key
-plublic.key
+public.key
 postgres-data
