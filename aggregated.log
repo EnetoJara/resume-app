@@ -202,3 +202,16 @@
 [2019-12-09T03:06:30.696Z] [error] => ENOENT: no such file or directory, stat '/home/eneto/code/resume-app/rest-resume-api/dist/build/index.html'
 [2019-12-09T03:10:03.190Z] [info] => serverConfig: [object Object]
 [2019-12-09T03:10:03.336Z] [info] => sinced
+[2019-12-10T00:43:18.998Z] [info] => serverConfig: [object Object]
+[2019-12-10T00:43:19.153Z] [error] => connect ECONNREFUSED 127.0.0.1:54320
+[2019-12-10T00:43:33.828Z] [error] => URI malformed
+[2019-12-10T01:46:21.638Z] [info] => serverConfig: [object Object]
+[2019-12-10T01:46:21.734Z] [error] => connect ECONNREFUSED 127.0.0.1:54320
+[2019-12-10T01:58:28.556Z] [info] => serverConfig: [object Object]
+[2019-12-10T01:58:28.601Z] [error] => connect ECONNREFUSED 127.0.0.1:54320
+[2019-12-10T02:01:15.034Z] [info] => serverConfig: [object Object]
+[2019-12-10T02:01:15.322Z] [error] => the database system is starting up
+[2019-12-10T02:03:16.898Z] [info] => serverConfig: [object Object]
+[2019-12-10T02:03:17.875Z] [info] => sinced
+[2019-12-10T02:04:49.158Z] [info] => serverConfig: [object Object]
+[2019-12-10T02:04:49.346Z] [info] => sinced

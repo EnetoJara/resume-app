@@ -16,13 +16,14 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const isEnvProduction = process.env.NODE_ENV === "production";
-console.log(isEnvProduction);
+process.env.PUBLIC_URL = "/";
 module.exports = {
     target: "web",
     entry: [
         "@babel/register",
         "core-js/stable",
         "@babel/runtime-corejs3/regenerator",
+        "es6-promise/auto",
         path.join(__dirname, "../src/client.tsx")
     ],
     devtool: "source-map",
@@ -288,7 +289,7 @@ module.exports = {
             checkSyntacticErrors: true,
             resolveModuleNameModule: undefined,
             resolveTypeReferenceDirectiveModule: undefined,
-            tsconfig: path.join(__dirname, "../tsconfig.json"),
+            tsconfig: path.join(__dirname, "../tsconfig.client.json"),
             reportFiles: [
                 '**',
                 '!**/__tests__/**',

@@ -9,7 +9,7 @@ export interface FormControlProps<T = any> {
     value: T;
     labelText: string;
     placeholder?: string;
-    onChangeHandler: (evt: any) => void;
+    onChangeHandler (evt: any): void;
     hasError?: string;
 }
 export function FormControl (props: FormControlProps): ReactElement {
@@ -17,20 +17,20 @@ export function FormControl (props: FormControlProps): ReactElement {
         name,
         value,
         onChangeHandler,
-        placeholder = "Please insert " + name,
+        placeholder = `Please insert ${name}`,
         labelText,
         type,
         isRequired = false,
-        hasError = ""
+        hasError = "",
     } = props;
     const change = (evt: FormEvent) => onChangeHandler(evt);
     const error = typeof hasError === "string" && hasError.trim().length > 0;
+
     return (
         <div
             className={cx({
                 "app-form-control": true,
                 "has-error": error,
-                "has-success": !error
             })}
         >
             <span className="app-form-control__label">

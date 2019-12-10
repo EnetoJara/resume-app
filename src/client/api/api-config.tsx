@@ -4,18 +4,18 @@ export const config = {
     timeout: 10000,
     headers: {
         common: {
-           "Content-Type": "application/json",
-           "Accept": "application/json"
+            "Content-Type": "application/json",
+            Accept: "application/json",
         },
         post: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
-         },
-         get: {
+            Accept: "application/json",
+        },
+        get: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
-         }
+            Accept: "application/json",
+        },
     },
     paramsSerializer: (params: string) =>
-        qs.stringify(params, { indices: false })
+        qs.stringify(params, { indices: false }),
 };

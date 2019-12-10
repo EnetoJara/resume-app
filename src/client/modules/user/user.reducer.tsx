@@ -1,10 +1,16 @@
-import { AppActions, REGISTER_USER, REGISTER_USER_FAILED, REGISTER_USER_SUCCESS, UserState } from "../../../types/resume-client";
+import {
+    AppActions,
+    REGISTER_USER,
+    REGISTER_USER_FAILED,
+    REGISTER_USER_SUCCESS,
+    UserState,
+} from "../../../types/resume-client";
 export const initUser = Object.freeze<UserState>({
     id: "",
     email: "",
     name: "",
     lastName: "",
-    token: ""
+    token: "",
 });
 
 export function userReducer (
@@ -13,11 +19,11 @@ export function userReducer (
 ): UserState {
     switch (action.type) {
         case REGISTER_USER:
-            return {...state};
+            return { ...state };
         case REGISTER_USER_SUCCESS:
-            return {...state};
+            return { ...state };
         case REGISTER_USER_FAILED:
-            return {...state};
+            return { ...state };
         default:
             return { ...state };
     }

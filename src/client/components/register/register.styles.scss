@@ -1,36 +1,45 @@
 @import '../../styles/.mixins';
 @import '../../styles/.animations';
+@import '../../styles/.constants';
 
-@include phone {
-    .app-register-layout {
-        width: 38rem;
-        padding: 1rem;
-        margin: 2rem;
-        animation: fadeIn 1s;
-        background-color: white;
-        border-radius: 3px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.app-register-layout {
+    width: 38rem;
+    margin: 2rem auto;
+    animation: fadeIn 1s;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: $shadow;
 
-        &__row {
-            display: flex;
-            flex: 1;
-            flex-flow: column;
-            justify-content: flex-start;
+    &__row {
+        display: flex;
+        flex: 1;
+        flex-flow: column;
+        justify-content: flex-start;
+    }
+
+    &__row.header {
+        background-color: $light;
+        padding: 2rem;
+        justify-content: center;
+        color: white;
+
+        > h3 {
+            text-align: center;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        width: 100;
+        justify-content: flex-end;
+        margin-right: 1rem;
+
+        >.btn.default {
+            margin-right: 1rem;
         }
 
-        &__buttons {
-            display: flex;
-            width: 100;
-            justify-content: flex-end;
-
-            > .btn.default {
-                margin-right: 1rem;
-            }
-
-            > .btn {
-                margin: 1rem 0;
-            }
+        >.btn {
+            margin: 1rem 0;
         }
     }
 }
@@ -38,7 +47,6 @@
 @include tablet {
     .app-register-layout {
         width: 60rem;
-        padding: 2rem;
         margin: 3rem auto;
         background-color: white;
         border-radius: 3px;
@@ -50,7 +58,7 @@
             flex-flow: row;
             justify-content: space-between;
 
-            > .app-form-control {
+            >.app-form-control {
                 width: 27rem;
             }
         }

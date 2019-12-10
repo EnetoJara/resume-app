@@ -1,26 +1,34 @@
 import { NextFunction, Request, Response } from "express";
-import { BAD_REQUEST, CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from "http-status-codes";
+import {
+    BAD_REQUEST,
+    CREATED,
+    getStatusText,
+    INTERNAL_SERVER_ERROR,
+    NOT_FOUND,
+    OK,
+    UNAUTHORIZED,
+} from "http-status-codes";
 import { DB } from "../models/index";
 import { UserModel } from "../models/users";
 import { UserRegister } from "../types/restApi";
 import { encriptPassword, isEqualsPassword } from "../utils/encripter";
 import { createToken, validateToken } from "../utils/passport";
 import { apiResponse } from "../utils/response";
-import { isTokenExpired, validateLogin, validateUserRegistration } from "../utils/validator";
+import {
+    isTokenExpired,
+    validateLogin,
+    validateUserRegistration,
+} from "../utils/validator";
 import { logger } from "./../utils/logger";
 
 export class UserController {
-    public constructor (public db: DB) {
+    public constructor(public db: DB) {
         this.register = this.register.bind(this);
         this.getAllUsers = this.getAllUsers.bind(this);
         this.login = this.login.bind(this);
     }
 
-    public authMiddleware (
-        req: Request,
-        res: Response,
-        next: NextFunction
-    ) {
+    public authMiddleware(req: Request, res: Response, next: NextFunction) {
         const token = req.headers.authorization;
         try {
             if (typeof token !== "string") {
@@ -67,7 +75,7 @@ export class UserController {
             );
         }
     }
-    public register (req: Request, res: Response) {
+    public register(req: Request, res: Response) {
         const user = <UserRegister>req.body;
         console.log("res.headers: ", req.headers);
         const erros = validateUserRegistration(user);
@@ -108,7 +116,7 @@ export class UserController {
             });
     }
 
-    public async login (req: Request, res: Response) {
+    public async login(req: Request, res: Response) {
         logger.info(`login ${req.body.email}`);
         try {
             const loginCredentials = req.body;
@@ -170,7 +178,7 @@ export class UserController {
         }
     }
 
-    public async getAllUsers (req: Request, res: Response, next: NextFunction) {
+    public async getAllUsers(req: Request, res: Response, next: NextFunction) {
         try {
             const { rows, count } = await this.db.User.findAndCountAll({
                 attributes: ["id", "name", "lastName", "email"],

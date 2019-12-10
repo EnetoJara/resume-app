@@ -1,0 +1,46 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "jsx": "react",
+        "jsxFactory": "React.createElement",
+        "types": [
+            "node",
+            "react",
+            "redux",
+            "redux-saga",
+            "axios",
+            "lodash",
+            "validator"
+        ],
+        "baseUrl": "./node_modules",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "paths": {
+            "*": [
+                "./*",
+                "../src/types/",
+                "../typings/"
+            ]
+        },
+
+    },
+    "exclude": [
+        "node_modules",
+        "public",
+        "dist",
+        "config",
+        "mocha",
+        "src/express.ts",
+        "src/server.ts",
+        "src/controllers/",
+        "src/models/",
+        "src/routes/",
+    ],
+    "include": [
+        "src/*.tsx",
+        "src/serviceWorker.ts",
+        "src/client/",
+        "src/types/",
+        "typings/"
+    ]
+}

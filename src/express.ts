@@ -15,7 +15,7 @@ import {
 } from "./utils/error-handler";
 import { logger } from "./utils/logger";
 
-export function serverConfig (db: DB): Application {
+export function serverConfig(db: DB): Application {
     logger.info(`serverConfig: ${db}`);
     const app: Application = express();
     app.use(helmet());

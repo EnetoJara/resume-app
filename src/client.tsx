@@ -1,15 +1,12 @@
-import "core-js/stable";
-import "@babel/runtime/regenerator";
-import "es6-promise/auto";
 import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { AppState } from "resume-client";
 import { App } from "./client/components/app";
 import rootSagas from "./client/modules/sagas";
 import { configureStore } from "./client/redux/store/dev";
 import "./client/styles/index.scss";
 import * as serviceWorker from "./serviceWorker";
+import { AppState } from "./types/resume-client";
 
 const initialState: AppState = {
     user: {
@@ -17,8 +14,8 @@ const initialState: AppState = {
         email: "",
         name: "",
         lastName: "",
-        token: ""
-    }
+        token: "",
+    },
 };
 const root = document.getElementById("root");
 const store = configureStore(initialState);

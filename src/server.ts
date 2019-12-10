@@ -1,5 +1,3 @@
-require("@babel/register");
-require("es6-promise/auto");
 import http, { Server } from "http";
 import { serverConfig } from "./express";
 import { db } from "./models";

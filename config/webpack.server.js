@@ -6,7 +6,13 @@ const resolve = require("resolve");
 const path =require("path");
 
 module.exports = {
-    entry: path.join(__dirname, "../src/server.ts"),
+    entry: [
+        "@babel/register",
+        "core-js",
+        "@babel/runtime-corejs3/regenerator",
+        "es6-promise/auto",
+        path.join(__dirname, "../src/server.ts")
+    ],
     mode: process.env.NODE_ENV,
     node: {
         __filename: false,

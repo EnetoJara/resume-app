@@ -1,0 +1,24 @@
+@import "../../styles/.constants";
+
+.app-resume-layout {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+}
+
+.app-resume-header {
+    width: 100%;
+    padding: 2rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    box-shadow: $shadow;
+
+    nav {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

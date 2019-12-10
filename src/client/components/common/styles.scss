@@ -1,4 +1,5 @@
 @import '../../styles/.animations';
+@import '../../styles/.constants';
 
 .btn {
     padding: 1rem 2rem;
@@ -10,7 +11,7 @@
     font-weight: bold;
 
     &.primary {
-        background-color: blue;
+        background-color: $primary-color;
     }
 
     &.success {
@@ -35,7 +36,8 @@
 .app-form-control {
     display: flex;
     flex-flow: column wrap;
-    margin: 1rem 0;
+    flex: 1;
+    margin: 1rem 1rem;
 
     > span {
         display: inline-block;

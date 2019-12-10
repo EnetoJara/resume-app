@@ -13,7 +13,7 @@ export interface SocialMediaModel
 export type SocialMediaStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): SocialMediaModel;
 };
-export function SocialMediaFactory (sequelize: Sequelize) {
+export function SocialMediaFactory(sequelize: Sequelize) {
     return <SocialMediaStatic>sequelize.define("social_media", {
         id: {
             type: DataTypes.INTEGER,

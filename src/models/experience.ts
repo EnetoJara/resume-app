@@ -19,7 +19,7 @@ export type ExperienceStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): ExperienceModel;
 };
 
-export function ExperienceFactory (sequelize: Sequelize) {
+export function ExperienceFactory(sequelize: Sequelize) {
     return <ExperienceStatic>sequelize.define("experiences", {
         id: {
             type: DataTypes.INTEGER,

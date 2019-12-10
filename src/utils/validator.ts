@@ -3,7 +3,7 @@ import { JwtError, LoginCredentials } from "../types/restApi";
 import { UserRegister } from "./../types/restApi";
 import { logger } from "./logger";
 
-export function validateLogin (credentials: LoginCredentials) {
+export function validateLogin(credentials: LoginCredentials) {
     logger.info("validateLogin");
     const errors: any = [];
 
@@ -30,7 +30,7 @@ export function validateLogin (credentials: LoginCredentials) {
  * @param {UserRegister} user User Model
  * @returns {Array} array of errors found
  */
-export function validateUserRegistration (user: UserRegister) {
+export function validateUserRegistration(user: UserRegister) {
     const errors: any = [];
 
     const {
@@ -110,6 +110,6 @@ export function validateUserRegistration (user: UserRegister) {
     return errors;
 }
 
-export function isTokenExpired (error: JwtError) {
+export function isTokenExpired(error: JwtError) {
     return error && error.name && error.name === "TokenExpiredError";
 }

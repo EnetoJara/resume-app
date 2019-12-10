@@ -20,24 +20,24 @@ export interface InputForm {
 }
 
 export class Register extends Component<RegisterProps, RegisterState> {
+    public state: RegisterState;
+    public constructor (props: RegisterProps) {
+        super(props);
+        this.state = {
+            email: "",
+            name: "",
+            middleName: "",
+            lastName: "",
+            secondLastName: "",
+            password: "",
+            password2: "",
+        };
+        this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+        this.onCancelButtonHandler = this.onCancelButtonHandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    }
 
-    state: RegisterState;
-   public constructor (props: RegisterProps) {
-       super(props);
-       this.state = {
-        email: "",
-        name: "",
-        middleName: "",
-        lastName: "",
-        secondLastName: "",
-        password: "",
-        password2: ""
-    };
-    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
-    this.onCancelButtonHandler = this.onCancelButtonHandler.bind(this);
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
-   }
-    onInputChangeHandler (evt: InputForm): void {
+    public onInputChangeHandler (evt: InputForm): void {
         const { value = "" } = evt.target;
         const { name = "" } = evt.target;
 
@@ -46,10 +46,9 @@ export class Register extends Component<RegisterProps, RegisterState> {
         } else {
             this.setState({ [name]: value.toUpperCase() });
         }
-
     }
 
-    onCancelButtonHandler (evt: FormEvent): void {
+    public onCancelButtonHandler (evt: FormEvent): void {
         evt.preventDefault();
 
         this.setState({
@@ -59,11 +58,11 @@ export class Register extends Component<RegisterProps, RegisterState> {
             middleName: "",
             secondLastName: "",
             password: "",
-            password2: ""
+            password2: "",
         });
     }
 
-    onSubmitHandler (evt: FormEvent): void {
+    public onSubmitHandler (evt: FormEvent): void {
         evt.preventDefault();
 
         const { register } = this.props;
@@ -74,7 +73,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
             lastName = "",
             secondLastName = "",
             password = "",
-            password2 = ""
+            password2 = "",
         } = this.state;
         register({
             email,
@@ -83,11 +82,11 @@ export class Register extends Component<RegisterProps, RegisterState> {
             lastName,
             secondLastName,
             password,
-            password2
+            password2,
         });
     }
 
-    render (): ReactElement {
+    public render (): ReactElement<RegisterProps> {
         const {
             email,
             name,
@@ -95,10 +94,15 @@ export class Register extends Component<RegisterProps, RegisterState> {
             lastName,
             secondLastName,
             password,
-            password2
+            password2,
         } = this.state;
+
         return (
             <div className="app-register-layout">
+                <div  className="app-register-layout__row header">
+                    <h3>Register</h3>
+                </div>
+                <div  className="app-register-layout__row">
                 <FormControl
                     isRequired
                     onChangeHandler={this.onInputChangeHandler}
@@ -107,6 +111,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
                     value={email}
                     labelText="Email"
                 />
+                </div>
                 <div className="app-register-layout__row">
                     <FormControl
                         isRequired

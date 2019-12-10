@@ -1,14 +1,19 @@
 import { AxiosError } from "axios";
-import { AppActions, RegisterCredentials, REGISTER_USER, REGISTER_USER_FAILED, REGISTER_USER_SUCCESS } from "../../../types/resume-client";
+import {
+    AppActions,
+    REGISTER_USER,
+    REGISTER_USER_FAILED,
+    REGISTER_USER_SUCCESS,
+    RegisterCredentials,
+} from "../../../types/resume-client";
 
 export function registerUser (
     user: RegisterCredentials
 ): AppActions<REGISTER_USER, RegisterCredentials> {
     return {
         type: REGISTER_USER,
-        payload: user
-    };REGISTER_USER
-    REGISTER_USER
+        payload: user,
+    };
 }
 
 export type RegisterUser = typeof registerUser;
@@ -18,16 +23,19 @@ export function registerUserFailed (
 ): AppActions<REGISTER_USER_FAILED, AxiosError> {
     return {
         type: REGISTER_USER_FAILED,
-        payload: error
+        payload: error,
     };
 }
 
 export type RegisterUserFailed = typeof registerUserFailed;
 
-export function registerUserSuccess (): AppActions<REGISTER_USER_SUCCESS, null> {
+export function registerUserSuccess (): AppActions<
+    REGISTER_USER_SUCCESS,
+    undefined
+> {
     return {
         type: REGISTER_USER_SUCCESS,
-        payload: null
+        payload: undefined,
     };
 }
 

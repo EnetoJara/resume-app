@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
-import { AppState } from "resume-client";
+import { AppState } from "../../../types/resume-client";
 import { rootReducer } from "../reducers";
 
 function configureStore (initialState: AppState) {
@@ -14,7 +14,7 @@ function configureStore (initialState: AppState) {
             initialState,
             composeWithDevTools(applyMiddleware(...middleware))
         ),
-        runSaga: sagaMiddleware.run
+        runSaga: sagaMiddleware.run,
     };
 }
 export { configureStore };
