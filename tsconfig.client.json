@@ -38,9 +38,9 @@
     ],
     "include": [
         "src/*.tsx",
-        "src/serviceWorker.ts",
         "src/client/",
         "src/types/",
+        "src/utils",
         "typings/"
     ]
 }

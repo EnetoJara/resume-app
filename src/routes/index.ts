@@ -3,7 +3,7 @@ import { SkillsController } from "../controllers/skills.controller";
 import { UserController } from "../controllers/user.controller";
 import { DB } from "../models/index";
 
-export function routes(db: DB) {
+export function routes (db: DB) {
     const api = Router();
 
     const userController = new UserController(db);

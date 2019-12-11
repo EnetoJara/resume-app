@@ -1,0 +1,38 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "types": [
+            "node",
+        ],
+        "baseUrl": "./node_modules",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "paths": {
+            "*": [
+                "./*",
+                "../src/types/",
+                "../typings/"
+            ]
+        },
+
+    },
+    "exclude": [
+        "node_modules",
+        "public",
+        "dist",
+        "config",
+        "mocha",
+        "src/*.tsx",
+        "src/client/",
+    ],
+    "include": [
+        "src/*.ts",
+        "src/utils/",
+        "src/controllers/",
+        "src/utils",
+        "src/routes",
+        "src/types",
+        "src/models",
+        "typings/"
+    ]
+}

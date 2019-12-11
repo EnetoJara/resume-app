@@ -99,18 +99,18 @@ export class Register extends Component<RegisterProps, RegisterState> {
 
         return (
             <div className="app-register-layout">
-                <div  className="app-register-layout__row header">
+                <div className="app-register-layout__row header">
                     <h3>Register</h3>
                 </div>
-                <div  className="app-register-layout__row">
-                <FormControl
-                    isRequired
-                    onChangeHandler={this.onInputChangeHandler}
-                    name="email"
-                    type="email"
-                    value={email}
-                    labelText="Email"
-                />
+                <div className="app-register-layout__row">
+                    <FormControl
+                        isRequired
+                        onChangeHandler={this.onInputChangeHandler}
+                        name="email"
+                        type="email"
+                        value={email}
+                        labelText="Email"
+                    />
                 </div>
                 <div className="app-register-layout__row">
                     <FormControl

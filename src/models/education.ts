@@ -16,7 +16,7 @@ export type EducationStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): EducationModel;
 };
 
-export function EducationFactory(sequelize: Sequelize) {
+export function EducationFactory (sequelize: Sequelize) {
     return <EducationStatic>sequelize.define("educations", {
         id: {
             type: DataTypes.INTEGER,

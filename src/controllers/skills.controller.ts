@@ -4,12 +4,12 @@ import { getStatusText, INTERNAL_SERVER_ERROR, OK } from "http-status-codes";
 import { DB } from "../models/index";
 import { apiResponse } from "../utils/response";
 export class SkillsController {
-    public constructor(private db: DB) {
+    public constructor (private db: DB) {
         this.getSkills = this.getSkills.bind(this);
         this.getSkillsTypeById = this.getSkillsTypeById.bind(this);
     }
 
-    public getSkills(
+    public getSkills (
         req: Request,
         res: Response,
         next: NextFunction
@@ -30,7 +30,7 @@ export class SkillsController {
             });
     }
 
-    public getSkillsTypeById(
+    public getSkillsTypeById (
         req: Request,
         res: Response,
         next: NextFunction

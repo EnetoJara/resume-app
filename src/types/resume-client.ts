@@ -41,6 +41,15 @@ export interface PostMethod {
     <T, P>(url: string, data: T, config?: AxiosRequestConfig): AxiosPromise<P>;
 }
 
+export const LOGIN_USER = "user/login";
+export type LOGIN_USER = typeof LOGIN_USER;
+
+export const LOGIN_USER_SUCCESS = "user/login-success";
+export type LOGIN_USER_SUCCESS = typeof LOGIN_USER_SUCCESS;
+
+export const LOGIN_USER_FAILED = "user/login-failed";
+export type LOGIN_USER_FAILED = typeof LOGIN_USER_FAILED;
+
 export const REGISTER_USER = "user/register";
 export type REGISTER_USER = typeof REGISTER_USER;
 
@@ -49,6 +58,3 @@ export type REGISTER_USER_SUCCESS = typeof REGISTER_USER_SUCCESS;
 
 export const REGISTER_USER_FAILED = "user/register-failed";
 export type REGISTER_USER_FAILED = typeof REGISTER_USER_FAILED;
-
-export const LOGIN_USER = "user/login";
-export type LOGIN_USER = typeof LOGIN_USER;

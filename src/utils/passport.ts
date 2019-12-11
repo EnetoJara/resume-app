@@ -11,10 +11,10 @@ const publicKEY = fs.readFileSync(
     "utf8"
 );
 
-export function createToken(userData: any) {
+export function createToken (userData: any) {
     return sign(userData, privateKey, { algorithm: "HS512", expiresIn: "1d" });
 }
 
-export function validateToken(token: string) {
+export function validateToken (token: string) {
     return verify(token, publicKEY, { algorithms: ["HS512"] });
 }
