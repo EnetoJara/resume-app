@@ -168,7 +168,16 @@ export class UserController {
 
             return apiResponse(
                 res,
-                { success: true, token: `Bearer ${token}` },
+                {
+                    success: true,
+                    id: isThere.id,
+                    email: isThere.email,
+                    name: isThere.name,
+                    middleName: isThere.middleName,
+                    lastName: isThere.lastName,
+                    secondLastName: isThere.secondLastName,
+                    token: `Bearer ${token}`,
+                },
                 OK
             );
         } catch (error) {

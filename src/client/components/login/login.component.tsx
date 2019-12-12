@@ -35,7 +35,7 @@ export class Login extends Component<LoginProps, LoginState> {
     public onInputChangeHandler (evt: InputForm): void {
         const { value = "" } = evt.target;
         const { name = "" } = evt.target;
-
+        console.log("changing");
         if (name.includes("password")) {
             this.setState({ [name]: value });
         } else {
@@ -46,6 +46,7 @@ export class Login extends Component<LoginProps, LoginState> {
     public onCancelButtonHandler (evt: FormEvent): void {
         evt.preventDefault();
 
+        console.log("canceling");
         this.setState({
             email: "",
             password: "",
@@ -55,6 +56,7 @@ export class Login extends Component<LoginProps, LoginState> {
     public onSubmitHandler (evt: FormEvent): void {
         evt.preventDefault();
 
+        console.log("submitin");
         const { login } = this.props;
         const { email = "", password = "" } = this.state;
         login({
@@ -73,12 +75,11 @@ export class Login extends Component<LoginProps, LoginState> {
                 </div>
                 <div className="app-login-layout__row">
                     <FormControl
-                        isRequired
                         onChangeHandler={this.onInputChangeHandler}
                         name="email"
-                        type="email"
                         value={email}
                         labelText="Email"
+                        tabIndex={1}
                     />
                 </div>
                 <div className="app-login-layout__row">
@@ -88,19 +89,21 @@ export class Login extends Component<LoginProps, LoginState> {
                         type="password"
                         value={password}
                         labelText="Password"
-                        isRequired
+                        tabIndex={2}
                     />
                 </div>
                 <div className="app-login-layout__buttons">
                     <Button
                         text="Cancel"
                         kind="default"
-                        onClick={this.onSubmitHandler}
+                        onClick={this.onCancelButtonHandler}
+                        tabIndex={4}
                     />
                     <Button
                         text="Login"
                         kind="primary"
                         onClick={this.onSubmitHandler}
+                        tabIndex={3}
                     />
                 </div>
             </div>

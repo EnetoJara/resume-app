@@ -4,6 +4,7 @@ import {
     RegisterCredentials,
     UserState,
 } from "../../../types/resume-client";
+import { LOGIN_API, POST, REGISTER_API } from "../../../utils/constants";
 import { Api } from "../../api";
 
 class UserApi extends Api {
@@ -15,7 +16,7 @@ class UserApi extends Api {
     public registerUser (user: RegisterCredentials): Promise<number> {
         return this.requestMethod({
             method: POST,
-            url: "/api/v1/register",
+            url: REGISTER_API,
             data: JSON.stringify(user),
         })
             .then((res: AxiosResponse<number>) => {
@@ -29,11 +30,11 @@ class UserApi extends Api {
     public loginUser (user: LoginCredentials): Promise<UserState> {
         return this.requestMethod({
             method: POST,
-            url: "/api/v1/register",
+            url: LOGIN_API,
             data: JSON.stringify(user),
         })
             .then((res: AxiosResponse<UserState>) => {
-                return res.status;
+                return res.data;
             })
             .catch((error: AxiosError) => {
                 throw error;

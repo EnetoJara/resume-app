@@ -26,12 +26,8 @@ export function serverConfig (db: DB): Application {
         expressStatic(path.join(__dirname, "./build"), { enableBrotli: true })
     );
     app.use("/api", routes(db));
-    app.use("/", (req: Request, res: Response) => {
-        res.sendFile(path.join(__dirname, "./build/index.html"));
-    });
-
     app.all("*", (req: Request, res: Response) => {
-        res.redirect("/");
+        res.sendFile(path.join(__dirname, "./build/index.html"));
     });
 
     app.use(

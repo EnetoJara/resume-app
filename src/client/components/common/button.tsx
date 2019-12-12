@@ -5,6 +5,7 @@ export interface ButtonProps {
     onClick (evt: FormEvent): void;
     kind: "success" | "primary" | "default" | "warning" | "error";
     text: string;
+    tabIndex?: number;
 }
 
 export class Button extends PureComponent<ButtonProps> {
@@ -19,10 +20,11 @@ export class Button extends PureComponent<ButtonProps> {
     }
 
     public render (): ReactElement {
-        const { kind, text } = this.props;
+        const { kind, text, tabIndex = 1 } = this.props;
 
         return (
             <button
+                tabIndex={tabIndex}
                 className={`btn ${kind}`}
                 type="button"
                 onClick={this.onClickHandlerEvent}

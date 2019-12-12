@@ -1,9 +1,13 @@
 import { fork, takeEvery } from "redux-saga/effects";
-import { REGISTER_USER } from "../../../types/resume-client";
-import { registerUserWorker } from "./user.workers";
+import { LOGIN_USER, REGISTER_USER } from "../../../types/resume-client";
+import { loginUserWorker, registerUserWorker } from "./user.workers";
 
 function* registerUserWatcher () {
     yield takeEvery(REGISTER_USER, registerUserWorker);
 }
 
-export default [fork(registerUserWatcher)];
+function* loginUserWatcher () {
+    yield takeEvery(LOGIN_USER, loginUserWorker);
+}
+
+export default [fork(registerUserWatcher), fork(loginUserWatcher)];

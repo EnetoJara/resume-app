@@ -16,6 +16,7 @@ export interface UserState {
     name: string;
     lastName: string;
     token: string;
+    success: boolean;
 }
 
 export interface AppState {

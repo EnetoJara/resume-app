@@ -9,6 +9,7 @@ import {
     REGISTER_USER_FAILED,
     REGISTER_USER_SUCCESS,
     RegisterCredentials,
+    UserState,
 } from "../../../types/resume-client";
 
 export function registerUser (
@@ -67,10 +68,12 @@ export function loginUserFailed (
 
 export type LoginUserFailed = typeof loginUserFailed;
 
-export function loginUserSuccess (): AppActions<LOGIN_USER_SUCCESS, undefined> {
+export function loginUserSuccess (
+    user: UserState
+): AppActions<LOGIN_USER_SUCCESS, UserState> {
     return {
         type: LOGIN_USER_SUCCESS,
-        payload: undefined,
+        payload: user,
     };
 }
 
