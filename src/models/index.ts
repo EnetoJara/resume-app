@@ -2,6 +2,7 @@ import { Sequelize } from "sequelize";
 import { CourseFactory, CourseStatic } from "./courses";
 import { EducationFactory, EducationStatic } from "./education";
 import { ExperienceFactory, ExperienceStatic } from "./experience";
+import { FieldsFactory, FieldsStatic } from "./fields-of-interets";
 import { GeneralFactory, GeneralStatic } from "./general";
 import { SkillsFactory, SkillsStatic } from "./skills";
 import { SkillsTypeFactory, SkillsTypeStatic } from "./skills-type";
@@ -18,6 +19,7 @@ export interface DB {
     Course: CourseStatic;
     General: GeneralStatic;
     SocialMedia: SocialMediaStatic;
+    FieldsOfInterest: FieldsStatic;
 }
 
 const sequelize = new Sequelize(
@@ -45,6 +47,7 @@ const Education = EducationFactory(sequelize);
 const Course = CourseFactory(sequelize);
 const General = GeneralFactory(sequelize);
 const SocialMedia = SocialMediaFactory(sequelize);
+const FieldsOfInterest = FieldsFactory(sequelize);
 
 SkillsType.belongsTo(Skills);
 SkillsType.belongsToMany(User, { through: "users_has_skills" });
@@ -57,6 +60,8 @@ Course.belongsTo(User);
 General.belongsTo(User);
 SocialMedia.belongsToMany(User, { through: "user_has_social" });
 User.belongsToMany(SocialMedia, { through: "user_has_social" });
+FieldsOfInterest.belongsToMany(User, { through: "user_has_fields" });
+User.belongsToMany(FieldsOfInterest, { through: "user_has_fields" });
 
 export const db: DB = {
     sequelize,
@@ -68,4 +73,5 @@ export const db: DB = {
     Course,
     General,
     SocialMedia,
+    FieldsOfInterest,
 };
