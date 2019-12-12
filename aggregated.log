@@ -221,3 +221,11 @@
 [2019-12-10T19:51:43.303Z] [info] => sinced
 [2019-12-10T19:53:17.887Z] [info] => serverConfig: [object Object]
 [2019-12-10T19:53:18.068Z] [info] => sinced
+[2019-12-12T01:24:35.230Z] [info] => serverConfig: [object Object]
+[2019-12-12T01:24:35.356Z] [error] => connect ECONNREFUSED 127.0.0.1:54320
+[2019-12-12T01:27:35.339Z] [info] => serverConfig: [object Object]
+[2019-12-12T01:27:35.973Z] [info] => sinced
+[2019-12-12T01:30:36.745Z] [info] => serverConfig: [object Object]
+[2019-12-12T01:30:36.986Z] [info] => sinced
+[2019-12-12T01:37:27.462Z] [info] => serverConfig: [object Object]
+[2019-12-12T01:37:27.912Z] [info] => sinced

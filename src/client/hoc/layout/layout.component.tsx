@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 
 export interface LayoutProps {
-    children: ReactElement[];
+    children: ReactElement;
 }
 export function Layout (props: LayoutProps): ReactElement<LayoutProps> {
     const { children } = props;

@@ -1,5 +1,9 @@
 import { AxiosError, AxiosResponse } from "axios";
-import { LoginCredentials, RegisterCredentials, UserState } from "../../../types/resume-client";
+import {
+    LoginCredentials,
+    RegisterCredentials,
+    UserState,
+} from "../../../types/resume-client";
 import { Api } from "../../api";
 
 class UserApi extends Api {
