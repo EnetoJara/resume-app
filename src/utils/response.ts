@@ -1,6 +1,7 @@
 import { Response } from "express";
 import { getStatusText, NOT_ACCEPTABLE } from "http-status-codes";
 import { parse } from "js2xmlparser";
+import { FailedResponse, SuccessResponse } from "../types/restApi";
 import { applicationJson, applicationXml } from "./constants";
 
 export interface ApiResponse {
@@ -32,3 +33,16 @@ export const apiResponse: ApiResponse = (
         },
     });
 };
+
+export function successResponse (data): SuccessResponse {
+    return {
+        success: true,
+        data: data
+    }
+}
+export function failedResponse (data): FailedResponse {
+    return {
+        success: false,
+        data: data
+    }
+}

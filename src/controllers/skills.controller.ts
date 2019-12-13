@@ -2,7 +2,13 @@ import Bluebird from "bluebird";
 import { NextFunction, Request, Response } from "express";
 import { getStatusText, INTERNAL_SERVER_ERROR, OK } from "http-status-codes";
 import { DB } from "../models/index";
-import { apiResponse } from "../utils/response";
+import { SkillsModel } from "../models/skills";
+import { SkillsTypeModel } from "../models/skills-type";
+import { FailedResponse, SuccessResponse } from "../types/restApi";
+import { logger } from "../utils/logger";
+import { apiResponse, failedResponse, successResponse } from "../utils/response";
+import { isNumber } from "../utils/validator";
+
 export class SkillsController {
     public constructor (private db: DB) {
         this.getSkills = this.getSkills.bind(this);
@@ -14,17 +20,17 @@ export class SkillsController {
         res: Response,
         next: NextFunction
     ): Bluebird<Response> {
-        return this.db.Skills.findAll({ attributes: ["id", "skill"] })
-            .then(skills => apiResponse(res, { success: true, skills }, OK))
-            .catch(error => {
-                console.error(error);
+        logger.info("getSkills");
 
-                return apiResponse(
+        return this.db.Skills.findAll({ attributes: ["id", "skill"] })
+            .then((skills: SkillsModel[]) =>
+                apiResponse<SuccessResponse<SkillsModel[]>>(res, successResponse(skills), OK)
+            ).catch(error => {
+                logger.error(error);
+
+                return apiResponse<FailedResponse<string>>(
                     res,
-                    {
-                        success: false,
-                        message: getStatusText(INTERNAL_SERVER_ERROR),
-                    },
+                    failedResponse(getStatusText(INTERNAL_SERVER_ERROR)),
                     INTERNAL_SERVER_ERROR
                 );
             });
@@ -35,24 +41,24 @@ export class SkillsController {
         res: Response,
         next: NextFunction
     ): Bluebird<Response> {
+        logger.info("getSkillsTypeById");
+
         const { idSkill } = req.params;
+        const criteria = isNumber(Number(idSkill)) ? idSkill : 0;
 
         return this.db.SkillsType.findAll({
             attributes: ["id", "name"],
-            where: { skillId: idSkill },
-        })
-            .then(skills => apiResponse(res, { success: true, skills }, OK))
-            .catch(error => {
-                console.error(error);
+            where: { skillId: criteria },
+        }).then((skills: SkillsTypeModel[]) =>
+            apiResponse<SuccessResponse<SkillsTypeModel[]>>(res, successResponse(skills), OK)
+        ).catch(error => {
+            logger.error(error);
 
-                return apiResponse(
-                    res,
-                    {
-                        success: false,
-                        message: getStatusText(INTERNAL_SERVER_ERROR),
-                    },
-                    INTERNAL_SERVER_ERROR
-                );
-            });
+            return apiResponse<FailedResponse<string>>(
+                res,
+                failedResponse(getStatusText(INTERNAL_SERVER_ERROR)),
+                INTERNAL_SERVER_ERROR
+            );
+        });
     }
 }

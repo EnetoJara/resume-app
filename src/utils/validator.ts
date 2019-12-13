@@ -113,3 +113,12 @@ export function validateUserRegistration (user: UserRegister) {
 export function isTokenExpired (error: JwtError) {
     return error && error.name && error.name === "TokenExpiredError";
 }
+
+/**
+ * function that validates if the input sended from the client is really a number
+ * @param {number} param numeric value
+ * @return {boolean} `true` if the input is number
+ */
+export function isNumber (param: number): boolean {
+    return Number(param) === Number(param);
+}
