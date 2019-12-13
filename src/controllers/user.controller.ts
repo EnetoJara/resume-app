@@ -1,13 +1,33 @@
 import Bluebird from "bluebird";
 import { NextFunction, Request, Response } from "express";
-import { BAD_REQUEST, CREATED, getStatusText, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED } from "http-status-codes";
+import {
+    BAD_REQUEST,
+    CREATED,
+    getStatusText,
+    INTERNAL_SERVER_ERROR,
+    NOT_FOUND,
+    OK,
+    UNAUTHORIZED,
+} from "http-status-codes";
 import { DB } from "../models/index";
 import { UserModel } from "../models/users";
-import { FailedResponse, SuccessResponse, UserRegister } from "../types/restApi";
+import {
+    FailedResponse,
+    SuccessResponse,
+    UserRegister,
+} from "../types/restApi";
 import { encriptPassword, isEqualsPassword } from "../utils/encripter";
 import { createToken, validateToken } from "../utils/passport";
-import { apiResponse, failedResponse, successResponse } from "../utils/response";
-import { isTokenExpired, validateLogin, validateUserRegistration } from "../utils/validator";
+import {
+    apiResponse,
+    failedResponse,
+    successResponse,
+} from "../utils/response";
+import {
+    isTokenExpired,
+    validateLogin,
+    validateUserRegistration,
+} from "../utils/validator";
 import { logger } from "./../utils/logger";
 
 export class UserController {
@@ -49,14 +69,14 @@ export class UserController {
             if (isTokenExpired(error)) {
                 return apiResponse<FailedResponse>(
                     res,
-                    failedResponse({...error}),
+                    failedResponse({ ...error }),
                     UNAUTHORIZED
                 );
             }
 
             return apiResponse<FailedResponse>(
                 res,
-                    failedResponse(getStatusText(UNAUTHORIZED)),
+                failedResponse(getStatusText(UNAUTHORIZED)),
                 INTERNAL_SERVER_ERROR
             );
         }
@@ -67,7 +87,11 @@ export class UserController {
         const erros = validateUserRegistration(user);
 
         if (erros.length > 0) {
-            return apiResponse<FailedResponse>(res, failedResponse(erros), BAD_REQUEST);
+            return apiResponse<FailedResponse>(
+                res,
+                failedResponse(erros),
+                BAD_REQUEST
+            );
         }
 
         return encriptPassword(user.password, 10)
@@ -77,7 +101,8 @@ export class UserController {
                 return this.db.User.findOne<UserModel>({
                     where: { email: user.email },
                 });
-            }).then(saved => {
+            })
+            .then(saved => {
                 if (saved !== null) {
                     throw { code: BAD_REQUEST, message: "User already exists" };
                 }
@@ -86,6 +111,7 @@ export class UserController {
             })
             .then(() => {
                 logger.info(`user created with email: ${user.email}`);
+
                 return apiResponse<SuccessResponse>(
                     res,
                     successResponse(getStatusText(CREATED)),
@@ -93,13 +119,17 @@ export class UserController {
                 );
             })
             .catch(error => {
-                logger.error({...error})
+                logger.error({ ...error });
                 const {
                     code = INTERNAL_SERVER_ERROR,
                     message = getStatusText(INTERNAL_SERVER_ERROR),
                 } = error;
 
-                return apiResponse<FailedResponse>(res, failedResponse(message), code);
+                return apiResponse<FailedResponse>(
+                    res,
+                    failedResponse(message),
+                    code
+                );
             });
     }
 
@@ -112,7 +142,11 @@ export class UserController {
             if (errors.length > 0) {
                 logger.warn(errors);
 
-                return apiResponse<FailedResponse>(res, failedResponse(errors), BAD_REQUEST);
+                return apiResponse<FailedResponse>(
+                    res,
+                    failedResponse(errors),
+                    BAD_REQUEST
+                );
             }
 
             const isThere = await this.db.User.findOne({
@@ -139,8 +173,7 @@ export class UserController {
 
                 return apiResponse<FailedResponse>(
                     res,
-                    failedResponse(
-                        getStatusText(NOT_FOUND)),
+                    failedResponse(getStatusText(NOT_FOUND)),
                     NOT_FOUND
                 );
             }
@@ -175,15 +208,31 @@ export class UserController {
         }
     }
 
-    public getAllUsers (req: Request, res: Response, next: NextFunction): Bluebird<Response> {
+    public getAllUsers (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Bluebird<Response> {
         return this.db.User.findAndCountAll<UserModel>({
             attributes: ["id", "name", "lastName", "email"],
-        }).then(result => {
-            const {rows, count} = result;
-            return apiResponse<SuccessResponse>(res, successResponse({users: rows, count}), OK);
-        }).catch(error => {
-            logger.error(`${{...error}}`)
-            return apiResponse(res, failedResponse(getStatusText(INTERNAL_SERVER_ERROR)), INTERNAL_SERVER_ERROR)
-        });
+        })
+            .then(result => {
+                const { rows, count } = result;
+
+                return apiResponse<SuccessResponse>(
+                    res,
+                    successResponse({ users: rows, count }),
+                    OK
+                );
+            })
+            .catch(error => {
+                logger.error(`${{ ...error }}`);
+
+                return apiResponse(
+                    res,
+                    failedResponse(getStatusText(INTERNAL_SERVER_ERROR)),
+                    INTERNAL_SERVER_ERROR
+                );
+            });
     }
 }

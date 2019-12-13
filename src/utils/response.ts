@@ -37,12 +37,12 @@ export const apiResponse: ApiResponse = (
 export function successResponse (data): SuccessResponse {
     return {
         success: true,
-        data: data
-    }
+        data,
+    };
 }
 export function failedResponse (data): FailedResponse {
     return {
         success: false,
-        data: data
-    }
+        data,
+    };
 }

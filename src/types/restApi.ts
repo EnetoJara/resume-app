@@ -28,7 +28,6 @@ export interface SuccessResponse<T = any> {
     data: T;
 }
 
-
 export interface FailedResponse<T = any> {
     success: false;
     data: T;

@@ -6,7 +6,11 @@ import { SkillsModel } from "../models/skills";
 import { SkillsTypeModel } from "../models/skills-type";
 import { FailedResponse, SuccessResponse } from "../types/restApi";
 import { logger } from "../utils/logger";
-import { apiResponse, failedResponse, successResponse } from "../utils/response";
+import {
+    apiResponse,
+    failedResponse,
+    successResponse,
+} from "../utils/response";
 import { isNumber } from "../utils/validator";
 
 export class SkillsController {
@@ -24,8 +28,13 @@ export class SkillsController {
 
         return this.db.Skills.findAll({ attributes: ["id", "skill"] })
             .then((skills: SkillsModel[]) =>
-                apiResponse<SuccessResponse<SkillsModel[]>>(res, successResponse(skills), OK)
-            ).catch(error => {
+                apiResponse<SuccessResponse<SkillsModel[]>>(
+                    res,
+                    successResponse(skills),
+                    OK
+                )
+            )
+            .catch(error => {
                 logger.error(error);
 
                 return apiResponse<FailedResponse<string>>(
@@ -49,16 +58,22 @@ export class SkillsController {
         return this.db.SkillsType.findAll({
             attributes: ["id", "name"],
             where: { skillId: criteria },
-        }).then((skills: SkillsTypeModel[]) =>
-            apiResponse<SuccessResponse<SkillsTypeModel[]>>(res, successResponse(skills), OK)
-        ).catch(error => {
-            logger.error(error);
+        })
+            .then((skills: SkillsTypeModel[]) =>
+                apiResponse<SuccessResponse<SkillsTypeModel[]>>(
+                    res,
+                    successResponse(skills),
+                    OK
+                )
+            )
+            .catch(error => {
+                logger.error(error);
 
-            return apiResponse<FailedResponse<string>>(
-                res,
-                failedResponse(getStatusText(INTERNAL_SERVER_ERROR)),
-                INTERNAL_SERVER_ERROR
-            );
-        });
+                return apiResponse<FailedResponse<string>>(
+                    res,
+                    failedResponse(getStatusText(INTERNAL_SERVER_ERROR)),
+                    INTERNAL_SERVER_ERROR
+                );
+            });
     }
 }
