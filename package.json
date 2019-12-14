@@ -3,12 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "type": "commonjs",
-    "husky": {
-        "hooks": {
-          "pre-commit": "npm run clean && npm run pretty && npm run fix",
-          "pre-push": "npm run clean && npm run pretty && npm run fix"
-        }
-      },
     "scripts": {
         "clean": "rimraf dist && rimraf reports && rimraf build && rimraf tsconfig.*.tsbuildinfo",
         "muta": "NODE_ENV=test stryker run",
@@ -16,7 +10,7 @@
         "server": "nodemon",
         "fix:client": "eslint --config ./.eslint.client.json ./src/client/*.{tsx,ts} ./src/client/**/*.{tsx,ts} ./src/client/**/**/*.{tsx,ts} ./src/client/**/**/**/*.{tsx,ts} --fix",
         "fix:server": "eslint --config ./.eslint.server.json ./src/server/*.ts ./src/server/**/*.ts ./src/server/**/**/*.ts ./src/server/**/**/**/*.ts --fix",
-        "fix": "run-p -l fix:*",
+        "fix": "npm run clean && npm run pretty && run-p -l fix:*",
         "client": "NODE_ENV=development IS_SERVER=false webpack-dev-server --config=config/webpack.prod.js --mode=development --color --hot",
         "type-check:client": "tsc -p ./tsconfig.client.json",
         "type-check:server": "tsc -p ./tsconfig.server.json",
@@ -82,6 +76,12 @@
         "sequelize": "5.21.2",
         "validator": "12.1.0",
         "winston": "3.2.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run type-check",
+            "pre-push": "npm run fix"
+        }
     },
     "devDependencies": {
         "@babel/cli": "7.7.4",
@@ -210,6 +210,7 @@
         "fork-ts-checker-webpack-plugin": "3.1.1",
         "fs-extra": "8.1.0",
         "html-webpack-plugin": "4.0.0-beta.5",
+        "husky": "3.1.0",
         "i": "0.3.6",
         "identity-obj-proxy": "3.0.0",
         "is-wsl": "2.1.1",

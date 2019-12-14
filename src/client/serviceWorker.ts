@@ -69,7 +69,7 @@ interface Config {
     onUpdate?(registration: ServiceWorkerRegistration): void;
 }
 
-export function register (config?: Config) {
+export function register (config: Config) {
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
         const publicUrl = new URL(
             (process as { env: { [key: string]: string } }).env.PUBLIC_URL,
