@@ -21,6 +21,7 @@ export interface InputForm {
 
 export class Register extends Component<RegisterProps, RegisterState> {
     public state: RegisterState;
+
     public constructor (props: RegisterProps) {
         super(props);
         this.state = {
@@ -105,75 +106,75 @@ export class Register extends Component<RegisterProps, RegisterState> {
                 <div className="app-register-layout__row">
                     <FormControl
                         isRequired
-                        onChangeHandler={this.onInputChangeHandler}
+                        labelText="Email"
                         name="email"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="email"
                         value={email}
-                        labelText="Email"
                     />
                 </div>
                 <div className="app-register-layout__row">
                     <FormControl
                         isRequired
-                        onChangeHandler={this.onInputChangeHandler}
+                        labelText="Name"
                         name="name"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="text"
                         value={name}
-                        labelText="Name"
                     />
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        labelText="Middle Name"
                         name="middleName"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="text"
                         value={middleName}
-                        labelText="Middle Name"
                     />
                 </div>
                 <div className="app-register-layout__row">
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        isRequired
+                        labelText="Last Name"
                         name="lastName"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="text"
                         value={lastName}
-                        labelText="Last Name"
-                        isRequired
                     />
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        labelText="Second Last Name"
                         name="secondLastName"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="text"
                         value={secondLastName}
-                        labelText="Second Last Name"
                     />
                 </div>
                 <div className="app-register-layout__row">
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        isRequired
+                        labelText="Password"
                         name="password"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="password"
                         value={password}
-                        labelText="Password"
-                        isRequired
                     />
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        isRequired
+                        labelText="Confirm Password"
                         name="password2"
+                        onChangeHandler={this.onInputChangeHandler}
                         type="password"
                         value={password2}
-                        labelText="Confirm Password"
-                        isRequired
                     />
                 </div>
                 <div className="app-register-layout__buttons">
                     <Button
-                        text="Cancel"
                         kind="default"
                         onClick={this.onSubmitHandler}
+                        text="Cancel"
                     />
                     <Button
-                        text="Register"
                         kind="primary"
                         onClick={this.onSubmitHandler}
+                        text="Register"
                     />
                 </div>
             </div>

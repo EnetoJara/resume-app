@@ -2,7 +2,7 @@ import React, { FormEvent, PureComponent, ReactElement } from "react";
 import "./styles.scss";
 
 export interface ButtonProps {
-    onClick (evt: FormEvent): void;
+    onClick(evt: FormEvent): void;
     kind: "success" | "primary" | "default" | "warning" | "error";
     text: string;
     tabIndex?: number;
@@ -24,10 +24,10 @@ export class Button extends PureComponent<ButtonProps> {
 
         return (
             <button
-                tabIndex={tabIndex}
                 className={`btn ${kind}`}
-                type="button"
                 onClick={this.onClickHandlerEvent}
+                tabIndex={tabIndex}
+                type="button"
             >
                 {text}
             </button>

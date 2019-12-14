@@ -21,6 +21,7 @@ export interface InputForm {
 
 export class Login extends Component<LoginProps, LoginState> {
     public state: LoginState;
+
     public constructor (props: LoginProps) {
         super(props);
         this.state = {
@@ -75,35 +76,35 @@ export class Login extends Component<LoginProps, LoginState> {
                 </div>
                 <div className="app-login-layout__row">
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
-                        name="email"
-                        value={email}
                         labelText="Email"
+                        name="email"
+                        onChangeHandler={this.onInputChangeHandler}
                         tabIndex={1}
+                        value={email}
                     />
                 </div>
                 <div className="app-login-layout__row">
                     <FormControl
-                        onChangeHandler={this.onInputChangeHandler}
+                        labelText="Password"
                         name="password"
+                        onChangeHandler={this.onInputChangeHandler}
+                        tabIndex={2}
                         type="password"
                         value={password}
-                        labelText="Password"
-                        tabIndex={2}
                     />
                 </div>
                 <div className="app-login-layout__buttons">
                     <Button
-                        text="Cancel"
                         kind="default"
                         onClick={this.onCancelButtonHandler}
                         tabIndex={4}
+                        text="Cancel"
                     />
                     <Button
-                        text="Login"
                         kind="primary"
                         onClick={this.onSubmitHandler}
                         tabIndex={3}
+                        text="Login"
                     />
                 </div>
             </div>

@@ -1,10 +1,5 @@
 import React, { ReactElement } from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
-import {
-    HOME_ROUTE,
-    LOGIN_ROUTE,
-    REGISTER_ROUTE,
-} from "../../../utils/constants";
 import { Home, Login, Register } from "../../containers";
 import { Header, Layout } from "../../hoc";
 
@@ -14,15 +9,34 @@ export function App (): ReactElement {
             <BrowserRouter>
                 <Header>
                     <nav>
-                        <Link to={LOGIN_ROUTE}>Login</Link>
-                        <Link to={REGISTER_ROUTE}>Register</Link>
+                        <Link to={process.env.CLIENT_LOGIN_ROUTE || ""}>
+                            Login
+                        </Link>
+                        <Link to={process.env.CLIENT_REGISTER_ROUTE || ""}>
+                            Register
+                        </Link>
                     </nav>
                 </Header>
                 <Switch>
-                    <Route exact path={REGISTER_ROUTE} component={Register} />
-                    <Route exact path={LOGIN_ROUTE} component={Login} />
-                    <Route exact path={HOME_ROUTE} component={Home} />
-                    <Redirect from="*" to={HOME_ROUTE} />
+                    <Route
+                        component={Register}
+                        exact
+                        path={process.env.CLIENT_REGISTER_ROUTE || ""}
+                    />
+                    <Route
+                        component={Login}
+                        exact
+                        path={process.env.CLIENT_LOGIN_ROUTE || ""}
+                    />
+                    <Route
+                        component={Home}
+                        exact
+                        path={process.env.CLIENT_HOME_ROUTE || ""}
+                    />
+                    <Redirect
+                        from="*"
+                        to={process.env.CLIENT_HOME_ROUTE || ""}
+                    />
                 </Switch>
             </BrowserRouter>
         </Layout>

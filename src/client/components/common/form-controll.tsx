@@ -9,7 +9,7 @@ export interface FormControlProps<T = any> {
     value: T;
     labelText: string;
     placeholder?: string;
-    onChangeHandler (evt: any): void;
+    onChangeHandler(evt: any): void;
     hasError?: string;
     tabIndex?: number;
 }
@@ -44,14 +44,14 @@ export function FormControl (props: FormControlProps): ReactElement {
                 )}
             </span>
             <input
-                required={isRequired}
                 className="app-form-control__input"
-                type={type}
                 name={name}
-                value={value}
-                placeholder={placeholder}
                 onChange={change}
+                placeholder={placeholder}
+                required={isRequired}
                 tabIndex={tabIndex}
+                type={type}
+                value={value}
             />
             <span className="app-form-control__feedback">{hasError}</span>
         </div>

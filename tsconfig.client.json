@@ -9,9 +9,7 @@
             "redux",
             "redux-saga",
             "axios",
-            "lodash",
-            "validator"
-        ],
+            "lodash"        ],
         "baseUrl": "./node_modules",
         "rootDir": "./src",
         "outDir": "./dist",
@@ -30,17 +28,19 @@
         "dist",
         "config",
         "mocha",
-        "src/express.ts",
-        "src/server.ts",
-        "src/controllers/",
-        "src/models/",
-        "src/routes/",
+        "src/server/",
     ],
     "include": [
-        "src/*.tsx",
-        "src/client/",
-        "src/types/",
-        "src/utils",
-        "typings/"
+        "src/client/*.ts",
+        "src/client/*.tsx",
+        "src/client/**/*.tsx",
+        "src/client/**/*.ts",
+        "src/client/**/**/*.tsx",
+        "src/client/**/**/*.ts",
+        "src/client/**/**/**/*.tsx",
+        "src/client/**/**/**/*.ts",
+        "src/client/**/**/**/**/*.tsx",
+        "src/client/**/**/**/**/*.ts",
+        "src/types/"
     ]
 }

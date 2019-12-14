@@ -1,37 +1,35 @@
-const webpackNodeExternals = require("webpack-node-externals");
-const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const resolve = require("resolve");
+const path = require("path");
+const nodeExternals = require("webpack-node-externals");
+const webpack = require("webpack");
 
-const path =require("path");
+process.env.IS_SERVER = "true";
+
+const vars = require("./env")("/", new RegExp(/^SERVER_/i));
 
 module.exports = {
+    target: "node",
+    node: {
+        __filename: false,
+        __dirname: false,
+    },
+    externals: [nodeExternals()],
     entry: [
         "@babel/register",
         "core-js",
         "@babel/runtime-corejs3/regenerator",
-        "es6-promise/auto",
-        path.join(__dirname, "../src/server.ts")
+        "./src/server/dev.ts",
     ],
-    mode: process.env.NODE_ENV,
-    node: {
-        __filename: false,
-        __dirname: false
-    },
-    target: "node",
-    externals: [webpackNodeExternals()],
     devtool: "source-map",
+    mode: "development",
     output: {
-		filename: "[name]-bundle.js",
-			chunkFilename: "[name].chunk.js",
-			path: path.resolve(__dirname, "../dist"),
-			publicPath: "/",
-			libraryTarget: "commonjs2",
+        filename: "[name]-bundle.js",
+        chunkFilename: "[name].chunk.js",
+        path: path.resolve(__dirname, "../dist"),
+        publicPath: "/",
+        libraryTarget: "commonjs2",
     },
     optimization: {
         splitChunks: {
-            chunks: 'all',
-            name: false,
             automaticNameDelimiter: "_",
             cacheGroups: {
                 vendor: {
@@ -44,13 +42,14 @@ module.exports = {
         },
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".key",]
+        extensions: [".ts", ".tsx", ".js", ".json", ".html"],
     },
     module: {
         rules: [
             {
-                test: /\.(ts|js)x?$/,
+                test: /\.(js|ts)x?$/,
                 exclude: /node_modules/,
+                include: /src/,
                 use: [
                     {
                         loader: "babel-loader",
@@ -58,7 +57,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg|gif|key)$/,
+                test: /\.(png|jpg|gif|json|html)$/,
                 use: [
                     {
                         loader: "file-loader",
@@ -67,28 +66,5 @@ module.exports = {
             },
         ],
     },
-    plugins: process.env.NODE_ENV === "production" ? [
-        new ForkTsCheckerWebpackPlugin({
-            typescript: resolve.sync('typescript', {
-              basedir: path.join(__dirname, "../node_modules/"),
-            }),
-            async: false,
-            useTypescriptIncrementalApi: true,
-            checkSyntacticErrors: true,
-            resolveModuleNameModule: undefined,
-            resolveTypeReferenceDirectiveModule: undefined,
-            tsconfig: path.join(__dirname, "../tsconfig.json"),
-            reportFiles: [
-              '**',
-              '!**/__tests__/**',
-              '!**/?(*.)(spec|test).*',
-              '!**/src/setupProxy.*',
-              '!**/src/setupTests.*',
-            ],
-            silent: true,
-            // The formatter is invoked directly in WebpackDevServerUtils during development
-            formatter: typescriptFormatter,
-          }),
-
-            ] : []
-}
+    plugins: [new webpack.DefinePlugin(vars.stringified)],
+};

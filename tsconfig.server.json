@@ -22,17 +22,15 @@
         "dist",
         "config",
         "mocha",
-        "src/*.tsx",
-        "src/client/",
+        "src/client/**",
     ],
     "include": [
-        "src/*.ts",
-        "src/utils/",
-        "src/controllers/",
-        "src/utils",
-        "src/routes",
-        "src/types",
-        "src/models",
-        "typings/"
+        "src/server/*.ts",
+        "src/server/**/*.ts",
+        "src/server/**/**/.ts",
+        "src/server/**/**/**/*.ts",
+        "src/server/**/**/**/**/*.ts",
+        "src/server/**/**/**/**/**/*.ts",
+        "src/types"
     ]
 }

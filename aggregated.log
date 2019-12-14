@@ -421,3 +421,7 @@
 [2019-12-13T00:03:13.340Z] [info] => sinced
 [2019-12-13T00:03:56.441Z] [info] => serverConfig: [object Object]
 [2019-12-13T00:03:56.602Z] [info] => sinced
+[2019-12-13T09:26:21.344Z] [info] => serverConfig: [object Object]
+[2019-12-13T09:26:21.404Z] [error] => connect ECONNREFUSED 127.0.0.1:54320
+[2019-12-13T09:27:34.883Z] [info] => serverConfig: [object Object]
+[2019-12-13T09:27:35.753Z] [info] => sinced

@@ -1,0 +1,11 @@
+{
+    "extends":"./.eslintrc.base.json",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "project": ["./tsconfig.server.json", "./packages/*/tsconfig.json"],
+        "tsconfigRootDir": "./"
+    }
+}
