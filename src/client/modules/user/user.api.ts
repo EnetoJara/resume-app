@@ -1,10 +1,5 @@
 import { AxiosError, AxiosResponse } from "axios";
-import {
-    LoginCredentials,
-    POST,
-    RegisterCredentials,
-    UserState,
-} from "../../../types/types";
+import { LoginCredentials, POST, RegisterCredentials, UserState } from "../../../types/types";
 import { Api } from "../../api";
 
 class UserApi extends Api {
@@ -17,7 +12,7 @@ class UserApi extends Api {
     public registerUser (user: RegisterCredentials): Promise<number> {
         return this.requestMethod({
             method: POST,
-            url: process.env.ROUTE_REGISTER,
+            url: `http://localhost:3000/${process.env.ROUTE_REGISTER}`,
             data: JSON.stringify(user),
         })
             .then((res: AxiosResponse<number>) => {
@@ -31,7 +26,7 @@ class UserApi extends Api {
     public loginUser (user: LoginCredentials): Promise<UserState> {
         return this.requestMethod({
             method: POST,
-            url: process.env.ROUTE_LOGIN,
+            url: `http://localhost:3000/${process.env.ROUTE_LOGIN}`,
             data: JSON.stringify(user),
         })
             .then((res: AxiosResponse<UserState>) => {

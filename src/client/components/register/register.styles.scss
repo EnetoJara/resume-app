@@ -1,66 +1,65 @@
-@import '../../styles/.mixins';
-@import '../../styles/.animations';
-@import '../../styles/.constants';
+@import "../../styles/mixins";
+@import "../../styles/animations";
+@import "../../styles/constants";
 
 .app-register-layout {
-    width: 38rem;
-    margin: 2rem auto;
-    animation: fadeIn 1s;
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: $shadow;
+  width: 38rem;
+  margin: 2rem auto;
+  animation: fadeIn 1s;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: $shadow;
 
-    &__row {
-        display: flex;
-        flex: 1;
-        flex-flow: column;
-        justify-content: flex-start;
+  &__row {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    justify-content: flex-start;
+  }
+
+  &__row.header {
+    background-color: $light;
+    padding: 2rem;
+    justify-content: center;
+    color: white;
+
+    > h3 {
+      text-align: center;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    width: 100;
+    justify-content: flex-end;
+    margin-right: 1rem;
+
+    > .btn.default {
+      margin-right: 1rem;
     }
 
-    &__row.header {
-        background-color: $light;
-        padding: 2rem;
-        justify-content: center;
-        color: white;
-
-        > h3 {
-            text-align: center;
-        }
+    > .btn {
+      margin: 1rem 0;
     }
-
-    &__buttons {
-        display: flex;
-        width: 100;
-        justify-content: flex-end;
-        margin-right: 1rem;
-
-        >.btn.default {
-            margin-right: 1rem;
-        }
-
-        >.btn {
-            margin: 1rem 0;
-        }
-    }
+  }
 }
 
 @include tablet {
-    .app-register-layout {
-        width: 60rem;
-        margin: 3rem auto;
-        background-color: white;
-        border-radius: 3px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .app-register-layout {
+    width: 60rem;
+    margin: 3rem auto;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-        &__row {
-            display: flex;
-            flex-flow: row;
-            justify-content: space-between;
+    &__row {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
 
-            >.app-form-control {
-                width: 27rem;
-            }
-        }
+      > .app-form-control {
+        width: 27rem;
+      }
     }
+  }
 }

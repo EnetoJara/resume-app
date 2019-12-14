@@ -2,6 +2,7 @@ import qs from "qs";
 
 export const config = {
     timeout: 10000,
+    baseUrl: "http://localhost:3000/",
     headers: {
         common: {
             "Content-Type": "application/json",

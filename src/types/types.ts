@@ -1,5 +1,7 @@
 import { AxiosPromise, AxiosRequestConfig } from "axios";
+import { Request, Response } from "express";
 import { Action } from "redux";
+import winston from "winston";
 
 export const applicationJson = "application/json";
 export const applicationXml = "application/xml";
@@ -9,6 +11,10 @@ export const GET = "GET";
 export const PUT = "PUT";
 export const DELETE = "DELETE";
 export const PATCH = "PATCH";
+
+export interface EndPoint {
+    (req: Request, res: Response, logger: winston.Logger): Promise<Response>;
+}
 
 export interface UserRegister {
     email: string;

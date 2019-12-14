@@ -1,111 +1,111 @@
-@import '../../styles/.animations';
-@import '../../styles/.constants';
+@import "../../styles/animations";
+@import "../../styles/constants";
 
 .btn {
-    padding: 1rem 2rem;
-    border: 1px solid $font-color;
-    background-color: transparent;
+  padding: 1rem 2rem;
+  border: 1px solid $font-color;
+  background-color: transparent;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+
+  &.primary {
+    background-color: $primary-color;
+  }
+
+  &.success {
+    background-color: green;
+  }
+
+  &.warning {
+    background-color: yellow;
+    color: $font-color;
+  }
+
+  &.error {
+    background-color: red;
+  }
+
+  &.default {
+    background-color: white;
+    color: $font-color;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: solid 1px $light;
+    background-color: $light;
+    color: #eee;
+  }
+}
+
+.app-form-control {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1;
+  margin: 1rem 1rem;
+
+  > span {
+    display: inline-block;
+    color: $font-color;
+    font-weight: light;
+  }
+
+  > input {
+    width: 100%;
+    padding: 1rem;
+    border: solid 1px #ccc;
+    background-color: white;
     border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
+    color: $font-color;
+    font-weight: normal;
 
-    &.primary {
-        background-color: $primary-color;
-    }
-
-    &.success {
-        background-color: green;
-    }
-
-    &.warning {
-        background-color: yellow;
-        color: $font-color;
-    }
-
-    &.error {
-        background-color: red;
-    }
-
-    &.default {
-        background-color: white;
-        color: $font-color;
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+      font-weight: 100;
     }
 
     &:hover,
     &:active,
     &:focus {
-        border: solid 1px $light;
-        background-color: $light;
-        color: #eee
+      border: solid 1px $light;
     }
-}
+  }
 
-.app-form-control {
-    display: flex;
-    flex-flow: column wrap;
-    flex: 1;
-    margin: 1rem 1rem;
+  &__isRequired {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: red;
+    font-weight: bolder;
+  }
 
-    > span {
-        display: inline-block;
-        color: $font-color;
-        font-weight: light;
-    }
+  &__feedback {
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-name: showMessage;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2rem;
+  }
 
-    > input {
-        width: 100%;
-        padding: 1rem;
-        border: solid 1px #ccc;
-        background-color: white;
-        border-radius: 3px;
-        color: $font-color;
-        font-weight: normal;
-
-        &::placeholder {
-            color: #999;
-            font-style: italic;
-            font-weight: 100;
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-            border: solid 1px $light;
-        }
+  &.has-error {
+    span {
+      color: red;
+      font-family: "Roboto", sans-serif;
     }
 
-    &__isRequired {
-        display: inline-block;
-        margin-left: 0.5rem;
+    input {
+      border: solid 1px red;
+
+      &::placeholder {
         color: red;
-        font-weight: bolder;
+      }
     }
-
-    &__feedback {
-        animation-delay: 1s;
-        animation-duration: 2s;
-        animation-name: showMessage;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 2rem;
-    }
-
-    &.has-error {
-        span {
-            color: red;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        input {
-            border: solid 1px red;
-
-            &::placeholder {
-                color: red;
-            }
-        }
-    }
+  }
 }
 
 // 5510548020 ext 2{

@@ -20,8 +20,6 @@ export function validateLogin (credentials: LoginCredentials) {
         errors.push({ password: "passwords must be from 5 to 15 characters" });
     }
 
-    logger.info(errors);
-
     return errors;
 }
 /**

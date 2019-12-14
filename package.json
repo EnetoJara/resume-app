@@ -6,14 +6,13 @@
     "scripts": {
         "clean": "rimraf dist && rimraf reports && rimraf build && rimraf tsconfig.*.tsbuildinfo",
         "muta": "NODE_ENV=test stryker run",
-        "pretty": "prettier ./config/*.js ./mocha/**/*.test.ts ./src/*.{ts,tsx} ./src/**/*.{ts,tsx} ./src/**/**/*.{ts,tsx} ./src/**/**/**/*.{ts,tsx} ./src/**/**/**/**/*.{ts,tsx} ./src/**/**/**/**/**/*.{ts,tsx} --color --write",
+        "pretty": "prettier-stylelint ./src/client/styles/* ./src/client/hoc/**/* ./src/client/components/**/* ./config/*.js ./mocha/**/*.test.ts ./src/*.{ts,tsx} ./src/**/*.{ts,tsx} ./src/**/**/*.{ts,tsx} ./src/**/**/**/*.{ts,tsx} ./src/**/**/**/**/*.{ts,tsx} ./src/**/**/**/**/**/*.{ts,tsx} --color --write",
         "server": "nodemon",
         "fix:client": "eslint --config ./.eslint.client.json ./src/client/*.{tsx,ts} ./src/client/**/*.{tsx,ts} ./src/client/**/**/*.{tsx,ts} ./src/client/**/**/**/*.{tsx,ts} --fix",
         "fix:server": "eslint --config ./.eslint.server.json ./src/server/*.ts ./src/server/**/*.ts ./src/server/**/**/*.ts ./src/server/**/**/**/*.ts --fix",
-        "prefix:styles": "prettier-stylelint ./src/client/styles/* ./src/components/**/*.*.scss --fix",
         "fix:styles": "stylelint --config ./.stylelintrc.js ./src/client/styles/*.scss -s scss --fix",
         "fix": "npm run clean && npm run pretty && run-p -l fix:*",
-        "client": "NODE_ENV=development IS_SERVER=false webpack-dev-server --config=config/webpack.prod.js --mode=development --color --hot",
+        "client": "NODE_ENV=development IS_SERVER=false webpack-dev-server --config=config/webpack.prod.js --mode=development --color --hot --watch",
         "type-check:client": "tsc -p ./tsconfig.client.json",
         "type-check:server": "tsc -p ./tsconfig.server.json",
         "type-check": "run-p -l type-check:*"

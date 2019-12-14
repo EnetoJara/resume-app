@@ -1,5 +1,5 @@
 {
 	"verbose": false,
-	"watch": ["./server"],
-	"exec": "webpack --mode=development --config=config/webpack.server.js && node ./dist/main-bundle.js"
+	"watch": ["./src/server/","./src/server/dev.ts"],
+	"exec": "webpack --mode=development --config=config/webpack.server.js --color && node ./dist/main-bundle.js"
 }

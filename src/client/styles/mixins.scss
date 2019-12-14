@@ -1,16 +1,16 @@
-@mixin phone () {
+@mixin phone() {
   @media screen and (min-width: 400px) {
     @content;
   }
 }
 
-@mixin tablet () {
+@mixin tablet() {
   @media screen and (min-width: 700px) {
     @content;
   }
 }
 
-@mixin desktop () {
+@mixin desktop() {
   @media screen and (min-width: 1000px) {
     @content;
   }
