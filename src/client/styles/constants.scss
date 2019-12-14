@@ -1,0 +1,8 @@
+$background-color: #eee;
+$primary-color: teal;
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$light: lighten($primary-color, 15%);
+$dark: darken($primary-color, 15%);
+$lighter: lighten($primary-color, 30%);
+$darker: darken($primary-color, 30%);
+$font-color: #666;

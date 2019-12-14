@@ -1,75 +1,74 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('./fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff');
+  font-family: 'Roboto';
+  src: url('./fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff');
 }
 
 $light: 100;
 $normal: 300;
-//$semibold: 500;
 $bold: 700;
 
 h1 {
-    font-size: 3rem + 1.2;
-    font-style: italic;
-    font-weight: $light;
-    letter-spacing: -0.046875rem;
-    line-height: 3.75rem + 1.2;
+  font-size: 3rem + 1.2;
+  font-style: italic;
+  font-weight: $light;
+  letter-spacing: -0.046875rem;
+  line-height: 3.75rem + 1.2;
 }
 
 h2 {
-    font-size: 2.125rem + 1.2;
-    font-style: normal;
-    font-weight: $light;
-    letter-spacing: -0.03125rem;
-    line-height: 3rem + 1.2;
+  font-size: 2.125rem + 1.2;
+  font-style: normal;
+  font-weight: $light;
+  letter-spacing: -0.03125rem;
+  line-height: 3rem + 1.2;
 }
 
 h3 {
-    font-size: 1.5rem + 1.2;
-    font-style: normal;
-    font-weight: $normal;
-    letter-spacing: 0;
-    line-height: 2rem + 1.2;
+  font-size: 1.5rem + 1.2;
+  font-style: normal;
+  font-weight: $normal;
+  letter-spacing: 0;
+  line-height: 2rem + 1.2;
 }
 
 h4 {
-    font-size: 1.25rem + 1.2;
-    font-style: normal;
-    font-weight: $bold;
-    letter-spacing: 0.009375rem;
-    line-height: 1.75rem + 1.2;
+  font-size: 1.25rem + 1.2;
+  font-style: normal;
+  font-weight: $bold;
+  letter-spacing: 0.009375rem;
+  line-height: 1.75rem + 1.2;
 }
 
 h5 {
-    font-size: 1rem + 1.2;
-    font-style: normal;
-    font-weight: $bold;
-    letter-spacing: 0.009375rem;
-    line-height: 1.5rem + 1.2;
+  font-size: 1rem + 1.2;
+  font-style: normal;
+  font-weight: $bold;
+  letter-spacing: 0.009375rem;
+  line-height: 1.5rem + 1.2;
 }
 
 h6 {
-    font-size: 0.875rem + 1.2;
-    font-style: normal;
-    font-weight: $bold;
-    letter-spacing: 0.009375rem;
-    line-height: 1.25rem + 1.2;
+  font-size: 0.875rem + 1.2;
+  font-style: normal;
+  font-weight: $bold;
+  letter-spacing: 0.009375rem;
+  line-height: 1.25rem + 1.2;
 }
 
 p,
 a,
 span {
-    font-size: 1.8rem;
-    font-style: normal;
-    font-weight: $normal;
-    letter-spacing: 0.01875rem;
-    line-height: 1.25rem + 1.2;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: $normal;
+  letter-spacing: 0.01875rem;
+  line-height: 1.25rem + 1.2;
 }
 
 button {
-    font-size: 0.875rem + 1.2;
-    font-style: normal;
-    font-weight: $bold;
-    letter-spacing: 0.025rem;
-    line-height: 1.25rem + 1.2;
+  font-size: 0.875rem + 1.2;
+  font-style: normal;
+  font-weight: $bold;
+  letter-spacing: 0.025rem;
+  line-height: 1.25rem + 1.2;
 }
