@@ -15,7 +15,7 @@ import {
 } from "./user.actions";
 import api from "./user.api";
 
-export function* registerUserWorker (
+export function* registerUserWorker(
     action: AppActions<REGISTER_USER, RegisterCredentials>
 ) {
     console.log("registerUserWorker");
@@ -31,7 +31,7 @@ export function* registerUserWorker (
     }
 }
 
-export function* loginUserWorker (
+export function* loginUserWorker(
     credentials: AppActions<LOGIN_USER, LoginCredentials>
 ) {
     console.log("loginUserWorker");

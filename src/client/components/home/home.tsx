@@ -6,11 +6,11 @@ export type HomeState = any;
 export class Home extends Component {
     public state: HomeState;
 
-    public componentDidMount () {
+    public componentDidMount() {
         console.log("Home mounted");
     }
 
-    public render (): ReactElement<HomeProps> {
+    public render(): ReactElement<HomeProps> {
         return <div> component </div>;
     }
 }

@@ -12,7 +12,7 @@ import {
     UserState,
 } from "../../../types/types";
 
-export function registerUser (
+export function registerUser(
     user: RegisterCredentials
 ): AppActions<REGISTER_USER, RegisterCredentials> {
     return {
@@ -23,7 +23,7 @@ export function registerUser (
 
 export type RegisterUser = typeof registerUser;
 
-export function registerUserFailed (
+export function registerUserFailed(
     error: AxiosError
 ): AppActions<REGISTER_USER_FAILED, AxiosError> {
     return {
@@ -34,7 +34,7 @@ export function registerUserFailed (
 
 export type RegisterUserFailed = typeof registerUserFailed;
 
-export function registerUserSuccess (): AppActions<
+export function registerUserSuccess(): AppActions<
     REGISTER_USER_SUCCESS,
     undefined
 > {
@@ -46,7 +46,7 @@ export function registerUserSuccess (): AppActions<
 
 export type RegisterUserSuccess = typeof registerUserSuccess;
 
-export function loginUser (
+export function loginUser(
     user: LoginCredentials
 ): AppActions<LOGIN_USER, LoginCredentials> {
     return {
@@ -57,7 +57,7 @@ export function loginUser (
 
 export type LoginUser = typeof loginUser;
 
-export function loginUserFailed (
+export function loginUserFailed(
     error: AxiosError
 ): AppActions<LOGIN_USER_FAILED, AxiosError> {
     return {
@@ -68,7 +68,7 @@ export function loginUserFailed (
 
 export type LoginUserFailed = typeof loginUserFailed;
 
-export function loginUserSuccess (
+export function loginUserSuccess(
     user: UserState
 ): AppActions<LOGIN_USER_SUCCESS, UserState> {
     return {

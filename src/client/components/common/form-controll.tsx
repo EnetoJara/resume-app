@@ -13,7 +13,7 @@ export interface FormControlProps<T = any> {
     hasError?: string;
     tabIndex?: number;
 }
-export function FormControl (props: FormControlProps): ReactElement {
+export function FormControl(props: FormControlProps): ReactElement {
     const {
         name,
         value,

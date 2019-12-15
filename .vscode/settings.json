@@ -1,0 +1,159 @@
+{
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": 0,
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingQuotes": "always",
+    "stylelint.autoFixOnSave": true,
+    "stylelint.enable": true,
+    "css.validate":false,
+    "scss.validate":false,
+    "editor.parameterHints.cycle": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.tabCompletion": "on",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorStyle": "line-thin",
+    "editor.snippetSuggestions": "top",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.simpleDialog.enable": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "better-comments.highlightPlainText": true,
+    "bracketPairColorizer.forceIterationColorCycle": true,
+    "bracketPairColorizer.forceUniqueOpeningColor": true,
+    "bracketPairColorizer.highlightActiveScope": true,
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "bracketPairColorizer.showBracketsInRuler": true,
+    "comment-ts.includeAuthorTag": true,
+    "comment-ts.includeDescriptionTag": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
+    "genGetSet.classic": true,
+    "docthis.authorName": "Ernesto Jara Olveda",
+    "git.allowForcePush": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "markdown.preview.breaks": true,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "node-modules-viewer.checkRoot": true,
+    "npm.enableScriptExplorer": true,
+    "npm.enableRunFromFolder": true,
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.showHiddenFiles": true,
+    "prettier.configPath": "./.prettierrc",
+    "trailing-spaces.trimOnSave": true,
+    "autoimport.autoComplete": true,
+    "better-comments.multilineComments": true,
+    "bracketPairColorizer.colorMode": "Consecutive",
+    "npm-intellisense.importDeclarationType": "const",
+    "npm-intellisense.importLinebreak": ";\n",
+    "npm-intellisense.recursivePackageJsonLookup": true,
+    "path-intellisense.absolutePathToWorkspace": true,
+    "comment-ts.authorName": "Ernesto Jara Olveda",
+    "editor.fontWeight": "100",
+    "typescript.autoClosingTags": true,
+    "typescript.format.insertSpaceAfterCommaDelimiter": true,
+    "typescript.format.insertSpaceAfterConstructor": true,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "tsimporter.doubleQuotes": true,
+    "javascript.suggest.completeJSDocs":true,
+    "javascript.suggest.autoImports":true,
+    "javascript.preferences.quoteStyle":"double",
+    "javascript.preferences.importModuleSpecifier":"non-relative",
+    "editor.showUnused": true,
+    "autoimport.spaceBetweenBraces": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "javascript.suggestionActions.enabled":true,
+    "javascript.referencesCodeLens.enabled":true,
+    "javascript.updateImportsOnFileMove.enabled":"always",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": false
+    },
+
+    // Controls the delay in ms after which quick suggestions will show up.
+    "editor.quickSuggestionsDelay": 10,
+
+    // Controls if suggestions should automatically show up when typing trigger characters
+    "editor.suggestOnTriggerCharacters": true,
+
+    // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
+
+    // Controls whether sorting favours words that appear close to the cursor
+    "editor.suggest.localityBonus": true,
+
+    // Controls how suggestions are pre-selected when showing the suggest list
+    // Enable word based suggestions
+    "editor.wordBasedSuggestions": true,
+    "npm-intellisense.importES6": true,
+    "npm-intellisense.showBuildInLibs": true,
+    "editor.cursorSurroundingLinesStyle": "all",
+    "workbench.enableExperiments": true,
+    "vsintellicode.typescript.completionsEnabled": true,
+    "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+    // Enable parameter hints
+    "editor.parameterHints.enabled": true,
+    "editor.matchBrackets": false,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/scripts/**": true
+    },
+    "jsdoc.author": "Ernesto Jara Olveda",
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.colorTheme": "eneto-theme",
+    "editor.fontFamily": "Fira Code iScript",
+    "editor.acceptSuggestionOnCommitCharacter": true,
+    "editor.autoSurround": "languageDefined",
+    "autoimport.doubleQuotes": true,
+    "editor.suggest.showColors": true,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "monospace",
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "files.exclude": {
+        "**/node_modues": true
+    },
+    "workbench.editor.revealIfOpen": true,
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.suggest.shareSuggestSelections": true,
+    "files.autoGuessEncoding": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.sideBar.location": "right",
+    "autoimport.useSemiColon": true,
+}

@@ -11,7 +11,7 @@ export interface FieldsModel
 export type FieldsStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): FieldsModel;
 };
-export function FieldsFactory (sequelize: Sequelize) {
+export function FieldsFactory(sequelize: Sequelize) {
     return <FieldsStatic>sequelize.define("fields", {
         id: {
             type: DataTypes.INTEGER,

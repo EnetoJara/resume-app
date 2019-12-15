@@ -12,7 +12,7 @@ export type SkillsTypeStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): SkillsTypeModel;
 };
 
-export function SkillsTypeFactory (sequelize: Sequelize) {
+export function SkillsTypeFactory(sequelize: Sequelize) {
     return <SkillsTypeStatic>sequelize.define("skills_types", {
         id: {
             type: DataTypes.INTEGER,

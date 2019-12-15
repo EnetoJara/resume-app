@@ -1,4 +1,4 @@
-function registerValidSW (swUrl: string, config?: Config) {
+function registerValidSW(swUrl: string, config?: Config) {
     navigator.serviceWorker
         .register(swUrl)
         .then(registration => {
@@ -33,7 +33,7 @@ function registerValidSW (swUrl: string, config?: Config) {
             console.error("Error during service worker registration:", error);
         });
 }
-function checkValidServiceWorker (swUrl: string, config: Config) {
+function checkValidServiceWorker(swUrl: string, config: Config) {
     fetch(swUrl)
         .then(response => {
             const contentType = response.headers.get("content-type");
@@ -69,7 +69,7 @@ interface Config {
     onUpdate?(registration: ServiceWorkerRegistration): void;
 }
 
-export function register (config: Config) {
+export function register(config: Config) {
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
         const publicUrl = new URL(
             (process as { env: { [key: string]: string } }).env.PUBLIC_URL,
@@ -97,7 +97,7 @@ export function register (config: Config) {
     }
 }
 
-export function unregister () {
+export function unregister() {
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.ready.then(registration => {
             registration.unregister();

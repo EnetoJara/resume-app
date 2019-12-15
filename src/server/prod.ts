@@ -1,4 +1,4 @@
-import body from "body-parser";
+/*import body from "body-parser";
 import compression from "compression";
 import express, { Application, Request, Response } from "express";
 import expressStatic from "express-static-gzip";
@@ -41,3 +41,4 @@ export function serverConfig (db: DB): Application {
 
     return app;
 }
+*/

@@ -19,7 +19,6 @@
         "SharedArrayBuffer": "readonly"
     },
     "parser": "@typescript-eslint/parser",
-
     "plugins": [
         "react",
         "eslint-plugin",
@@ -29,35 +28,59 @@
     ],
     "settings": {
         "react": {
-          "createClass": "createReactClass",
-          "pragma": "React",
-          "version": "detect"
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "detect"
         },
         "propWrapperFunctions": [
             "forbidExtraProps",
-            {"property": "freeze", "object": "Object"},
-            {"property": "myFavoriteWrapper"}
+            {
+                "property": "freeze",
+                "object": "Object"
+            },
+            {
+                "property": "myFavoriteWrapper"
+            }
         ],
         "linkComponents": [
-
-          "Hyperlink",
-          {"name": "Link", "linkAttribute": "to"}
+            "Hyperlink",
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
         ]
-      },
+    },
     "rules": {
         "prettier/prettier": 0,
-"import/no-unresolved": 0,
-"@typescript-eslint/unbound-method": 0,
-"@typescript-eslint/explicit-function-return-type": 0,
-"no-console": 0,
-"import/prefer-default-export": 0,
-"@typescript-eslint/no-explicit-any":0,
-"@typescript-eslint/no-empty-interface": 0,
-"class-methods-use-this": 0,
-"@typescript-eslint/consistent-type-assertions": 0,
-"no-self-compare": 0,
-"import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-"no-throw-literal": 0,
-"space-before-function-paren":["error", "always"]
+        "@typescript-eslint/no-var-requires": 0,
+        "global-require": 0,
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "args": "none"
+            }
+        ],
+        "import/no-unresolved": 0,
+        "@typescript-eslint/unbound-method": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "no-console": 0,
+        "import/prefer-default-export": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-empty-interface": 0,
+        "class-methods-use-this": 0,
+        "@typescript-eslint/consistent-type-assertions": 0,
+        "no-useless-constructor": 0,
+        "no-self-compare": 0,
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "no-throw-literal": 0,
+        "space-before-function-paren": [
+            "error",
+            "always"
+        ]
     }
 }

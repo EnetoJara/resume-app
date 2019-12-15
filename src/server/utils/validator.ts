@@ -2,7 +2,13 @@ import { isAlpha, isAlphanumeric, isEmail, isEmpty, isLength } from "validator";
 import { JwtError, LoginCredentials, UserRegister } from "../../types/types";
 import { logger } from "./logger";
 
-export function validateLogin (credentials: LoginCredentials) {
+/**
+ * @description Validates login
+ * @author Ernesto Jara Olveda
+ * @param {LoginCredentials} credentials
+ * @returns {Array} array of errors found
+ */
+export function validateLogin(credentials: LoginCredentials) {
     logger.info("validateLogin");
     const errors: any = [];
 
@@ -27,7 +33,7 @@ export function validateLogin (credentials: LoginCredentials) {
  * @param {UserRegister} user User Model
  * @returns {Array} array of errors found
  */
-export function validateUserRegistration (user: UserRegister) {
+export function validateUserRegistration(user: UserRegister) {
     const errors: any = [];
 
     const {
@@ -107,7 +113,13 @@ export function validateUserRegistration (user: UserRegister) {
     return errors;
 }
 
-export function isTokenExpired (error: JwtError) {
+/**
+ * @description Determines whether token expired
+ * @author Ernesto Jara Olveda
+ * @param {JwtError} error
+ * @returns {boolean} true if token died
+ */
+export function isTokenExpired(error: JwtError) {
     return error && error.name && error.name === "TokenExpiredError";
 }
 
@@ -116,6 +128,23 @@ export function isTokenExpired (error: JwtError) {
  * @param {number} param numeric value
  * @return {boolean} `true` if the input is number
  */
-export function isNumber (param: number): boolean {
+export function isNumber(param: any): boolean {
     return Number(param) === Number(param);
+}
+
+/**
+ * Removes empty properties from a given object
+ * @author Ernesto Jara Olveda
+ * @param {object} obj
+ * @returns {object} empty
+ */
+export function removeEmpty(obj: object): any {
+    return Object.keys(obj)
+        .filter((key: string) => !isEmpty(obj[key]))
+        .reduce((newObject, key: string) => {
+            if (typeof obj[key] === "object") {
+                return { ...newObject, [key]: removeEmpty(obj[key]) };
+            }
+            return { ...newObject, [key]: obj[key] };
+        }, {});
 }

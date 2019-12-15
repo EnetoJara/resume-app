@@ -3,6 +3,16 @@
     "compilerOptions": {
         "types": [
             "node",
+            "express",
+            "body-parser",
+            "helmet",
+            "compression",
+            "winston",
+            "sequelize",
+            "validator",
+            "bcrypt",
+            "passport",
+            "jsonwebtoken"
         ],
         "baseUrl": "./node_modules",
         "rootDir": "./src",
@@ -14,7 +24,6 @@
                 "../typings/"
             ]
         },
-
     },
     "exclude": [
         "node_modules",

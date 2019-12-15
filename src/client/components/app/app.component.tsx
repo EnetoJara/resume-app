@@ -1,9 +1,10 @@
 import React, { ReactElement } from "react";
+import { hot } from "react-hot-loader/root";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { Home, Login, Register } from "../../containers";
 import { Header, Layout } from "../../hoc";
 
-export function App (): ReactElement {
+function Main(): ReactElement {
     return (
         <Layout>
             <BrowserRouter>
@@ -42,3 +43,5 @@ export function App (): ReactElement {
         </Layout>
     );
 }
+
+export const App = hot(Main);

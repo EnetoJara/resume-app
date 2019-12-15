@@ -22,7 +22,7 @@ export interface InputForm {
 export class Register extends Component<RegisterProps, RegisterState> {
     public state: RegisterState;
 
-    public constructor (props: RegisterProps) {
+    public constructor(props: RegisterProps) {
         super(props);
         this.state = {
             email: "",
@@ -38,7 +38,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
 
-    public onInputChangeHandler (evt: InputForm): void {
+    public onInputChangeHandler(evt: InputForm): void {
         const { value = "" } = evt.target;
         const { name = "" } = evt.target;
 
@@ -49,7 +49,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
         }
     }
 
-    public onCancelButtonHandler (evt: FormEvent): void {
+    public onCancelButtonHandler(evt: FormEvent): void {
         evt.preventDefault();
 
         this.setState({
@@ -63,7 +63,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
         });
     }
 
-    public onSubmitHandler (evt: FormEvent): void {
+    public onSubmitHandler(evt: FormEvent): void {
         evt.preventDefault();
 
         const { register } = this.props;
@@ -87,7 +87,7 @@ export class Register extends Component<RegisterProps, RegisterState> {
         });
     }
 
-    public render (): ReactElement<RegisterProps> {
+    public render(): ReactElement<RegisterProps> {
         const {
             email,
             name,

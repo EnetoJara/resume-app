@@ -4,7 +4,7 @@ import { config } from "./api-config";
 export class Axios {
     public api: AxiosInstance;
 
-    public constructor () {
+    public constructor() {
         this.api = axios.create({ ...config });
     }
 }

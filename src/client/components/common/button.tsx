@@ -9,17 +9,17 @@ export interface ButtonProps {
 }
 
 export class Button extends PureComponent<ButtonProps> {
-    public constructor (props: ButtonProps) {
+    public constructor(props: ButtonProps) {
         super(props);
         this.onClickHandlerEvent = this.onClickHandlerEvent.bind(this);
     }
 
-    public onClickHandlerEvent (event: FormEvent) {
+    public onClickHandlerEvent(event: FormEvent) {
         const { onClick } = this.props;
         onClick(event);
     }
 
-    public render (): ReactElement {
+    public render(): ReactElement {
         const { kind, text, tabIndex = 1 } = this.props;
 
         return (

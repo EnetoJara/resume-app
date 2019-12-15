@@ -1,5 +1,5 @@
 import { AxiosPromise, AxiosRequestConfig } from "axios";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { Action } from "redux";
 import winston from "winston";
 
@@ -12,11 +12,8 @@ export const PUT = "PUT";
 export const DELETE = "DELETE";
 export const PATCH = "PATCH";
 
-export interface EndPoint {
-    (req: Request, res: Response, logger: winston.Logger): Promise<Response>;
-}
-
 export interface UserRegister {
+    id?: number;
     email: string;
     password: string;
     password2: string;
@@ -104,3 +101,26 @@ export const REGISTER_USER_SUCCESS = "user/register-success";
 export type REGISTER_USER_SUCCESS = typeof REGISTER_USER_SUCCESS;
 export const REGISTER_USER_FAILED = "user/register-failed";
 export type REGISTER_USER_FAILED = typeof REGISTER_USER_FAILED;
+
+export interface AppRequest<B = any> extends Request {
+    requestTime: number;
+    body: B;
+    success: boolean;
+}
+
+export interface ApiResult {
+    data: any;
+    code: number;
+}
+
+export interface EndPoint {
+    (
+        req: Request,
+        res: Response,
+        next: NextFunction,
+        logger: winston.Logger
+    ): Promise<Response>;
+}
+
+export const EMAIL_EXISTS = 1;
+export type EMAIL_EXISTS = typeof EMAIL_EXISTS;

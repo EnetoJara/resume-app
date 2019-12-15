@@ -252,9 +252,6 @@ module.exports = {
         injectClient: false,
         publicPath: "/",
         quiet: false,
-        watchOptions: {
-            ignored: paths.appSrc,
-        },
         https: false,
         host: "localhost",
         overlay: false,

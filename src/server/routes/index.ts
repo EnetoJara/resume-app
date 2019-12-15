@@ -1,21 +1,29 @@
 import { Router } from "express";
-import { SkillsController } from "../controllers/skills.controller";
-import { UserController } from "../controllers/user.controller";
+import { SkillsController, UserController } from "../controllers";
 import { DB } from "../models/index";
-import { handler } from "../utils/error-handler";
+import { SkillsService, UserService } from "../services";
+import { validateRegister, validatingLogin } from "../utils/middlewares";
 
-export function routes (db: DB) {
+export function routes(db: DB) {
     const api = Router();
 
-    const userController = new UserController(db);
-    const skillsController = new SkillsController(db);
+    const userController = new UserController(new UserService(db));
+    const skillsController = new SkillsController(new SkillsService(db));
 
-    api.post(`/${process.env.ROUTE_REGISTER}`, handler(userController.register));
-    api.post(`/${process.env.ROUTE_LOGIN}`, handler(userController.login));
-    api.get(`/${process.env.ROUTE_GET_ALL_USERS}`, handler(userController.getAllUsers));
-    api.get(`/${process.env.ROUTE_GET_SKILLS}`, handler(skillsController.getSkills));
+    api.post(
+        `/${process.env.ROUTE_REGISTER}`,
+        [validateRegister],
+        userController.register
+    );
+    api.post(
+        `/${process.env.ROUTE_LOGIN}`,
+        [validatingLogin],
+        userController.login
+    );
+    api.get(`/${process.env.ROUTE_GET_ALL_USERS}`, userController.getAllUsers);
+    api.get(`/${process.env.ROUTE_GET_SKILLS}`, skillsController.getSkills);
     api.get(
-        `/${process.env.ROUTE_GET_SKILL_TYPE_BY_ID}`,
+        `/${process.env.ROUTE_GET_SKILL_TYPE_BY_ID}/:${process.env.ROUTE_PARAM_SKILL}`,
         skillsController.getSkillsTypeById
     );
 

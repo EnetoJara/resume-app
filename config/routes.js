@@ -20,5 +20,6 @@ fs.writeFileSync(
 ROUTE_LOGIN=${makeid(40)}
 ROUTE_GET_ALL_USERS=${makeid(40)}
 ROUTE_GET_SKILLS=${makeid(40)}
-ROUTE_GET_SKILL_TYPE_BY_ID=${makeid(40)}`
+ROUTE_GET_SKILL_TYPE_BY_ID=${makeid(40)}
+ROUTE_PARAM_SKILL=${makeid(5)}`
 );
