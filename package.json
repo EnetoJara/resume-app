@@ -19,7 +19,7 @@
         "fix:client": "eslint --config ./.eslint.client.json ./src/client/*.{tsx,ts} ./src/client/**/*.{tsx,ts} ./src/client/**/**/*.{tsx,ts} ./src/client/**/**/**/*.{tsx,ts} --fix",
         "fix:server": "eslint --config ./.eslint.server.json ./src/server/*.ts ./src/server/**/*.ts ./src/server/**/**/*.ts ./src/server/**/**/**/*.ts --fix",
         "fix:styles": "stylelint --config ./.stylelintrc.js ./src/client/styles/*.scss -s scss --fix",
-        "fix": "npm run clean && npm run pretty && run-p -l fix:*",
+        "fix": "npm run clean && run-p -l fix:*",
         "client": "NODE_ENV=development IS_SERVER=false webpack-dev-server --config=config/webpack.prod.js --mode=development --color",
         "type-check:client": "tsc -p ./tsconfig.client.json",
         "type-check:server": "tsc -p ./tsconfig.server.json",

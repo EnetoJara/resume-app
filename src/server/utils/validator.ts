@@ -8,7 +8,7 @@ import { logger } from "./logger";
  * @param {LoginCredentials} credentials
  * @returns {Array} array of errors found
  */
-export function validateLogin(credentials: LoginCredentials) {
+export function validateLogin (credentials: LoginCredentials) {
     logger.info("validateLogin");
     const errors: any = [];
 
@@ -33,7 +33,7 @@ export function validateLogin(credentials: LoginCredentials) {
  * @param {UserRegister} user User Model
  * @returns {Array} array of errors found
  */
-export function validateUserRegistration(user: UserRegister) {
+export function validateUserRegistration (user: UserRegister) {
     const errors: any = [];
 
     const {
@@ -119,7 +119,7 @@ export function validateUserRegistration(user: UserRegister) {
  * @param {JwtError} error
  * @returns {boolean} true if token died
  */
-export function isTokenExpired(error: JwtError) {
+export function isTokenExpired (error: JwtError) {
     return error && error.name && error.name === "TokenExpiredError";
 }
 
@@ -128,7 +128,7 @@ export function isTokenExpired(error: JwtError) {
  * @param {number} param numeric value
  * @return {boolean} `true` if the input is number
  */
-export function isNumber(param: any): boolean {
+export function isNumber (param: any): boolean {
     return Number(param) === Number(param);
 }
 
@@ -138,7 +138,7 @@ export function isNumber(param: any): boolean {
  * @param {object} obj
  * @returns {object} empty
  */
-export function removeEmpty(obj: object): any {
+export function removeEmpty (obj: object): any {
     return Object.keys(obj)
         .filter((key: string) => !isEmpty(obj[key]))
         .reduce((newObject, key: string) => {

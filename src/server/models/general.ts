@@ -22,7 +22,7 @@ export interface GeneralModel
 export type GeneralStatic = typeof Model & {
     new (values?: object, options?: BuildOptions): GeneralModel;
 };
-export function GeneralFactory(sequelize: Sequelize) {
+export function GeneralFactory (sequelize: Sequelize) {
     return <GeneralStatic>sequelize.define("general", {
         id: {
             type: DataTypes.INTEGER,

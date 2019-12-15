@@ -5,7 +5,7 @@ import { routes } from "./routes";
 import { logger } from "./utils/logger";
 import { timeMiddleware } from "./utils/middlewares";
 
-export function expressApp() {
+export function expressApp () {
     db.sequelize
         .authenticate()
         .then(() => logger.info("connected to db"))

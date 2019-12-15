@@ -12,7 +12,7 @@ export class EndPointResponse {
      * @param {string} message - small text explaining the overall result.
      * @param {any} [data] - any sort of payload.
      */
-    public constructor(
+    public constructor (
         public code: number,
         public message: string,
         public data?: any

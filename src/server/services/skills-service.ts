@@ -22,7 +22,7 @@ export class SkillsService {
      * @constructor
      * @param {DB} `db`
      */
-    public constructor(db: DB) {
+    public constructor (db: DB) {
         this.db = db;
         this.getAll = this.getAll.bind(this);
         this.getSkillsByType = this.getSkillsByType.bind(this);
@@ -37,7 +37,7 @@ export class SkillsService {
      * @param {number} idSkills
      * @returns {SkillsTypeModel[]} skills by type
      */
-    public getAll(): Bluebird<SkillsModel[]> {
+    public getAll (): Bluebird<SkillsModel[]> {
         return this.db.Skills.findAll({ attributes: ["id", "skill"] }).then(
             (res: SkillsModel[]) => {
                 return res;
@@ -54,7 +54,7 @@ export class SkillsService {
      * @param {number} idSkills
      * @returns {SkillsTypeModel[]} skills by type
      */
-    public getSkillsByType(idSkills: number): Bluebird<SkillsTypeModel[]> {
+    public getSkillsByType (idSkills: number): Bluebird<SkillsTypeModel[]> {
         return this.db.SkillsType.findAll({
             attributes: ["id", "name"],
             where: { skillId: idSkills },

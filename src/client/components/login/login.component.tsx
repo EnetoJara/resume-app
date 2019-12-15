@@ -22,7 +22,7 @@ export interface InputForm {
 export class Login extends Component<LoginProps, LoginState> {
     public state: LoginState;
 
-    public constructor(props: LoginProps) {
+    public constructor (props: LoginProps) {
         super(props);
         this.state = {
             email: "",
@@ -33,7 +33,7 @@ export class Login extends Component<LoginProps, LoginState> {
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
 
-    public onInputChangeHandler(evt: InputForm): void {
+    public onInputChangeHandler (evt: InputForm): void {
         const { value = "" } = evt.target;
         const { name = "" } = evt.target;
         console.log("changing");
@@ -44,7 +44,7 @@ export class Login extends Component<LoginProps, LoginState> {
         }
     }
 
-    public onCancelButtonHandler(evt: FormEvent): void {
+    public onCancelButtonHandler (evt: FormEvent): void {
         evt.preventDefault();
 
         console.log("canceling");
@@ -54,7 +54,7 @@ export class Login extends Component<LoginProps, LoginState> {
         });
     }
 
-    public onSubmitHandler(evt: FormEvent): void {
+    public onSubmitHandler (evt: FormEvent): void {
         evt.preventDefault();
 
         console.log("submitin");
@@ -66,7 +66,7 @@ export class Login extends Component<LoginProps, LoginState> {
         });
     }
 
-    public render(): ReactElement<LoginProps> {
+    public render (): ReactElement<LoginProps> {
         const { email, password } = this.state;
 
         return (

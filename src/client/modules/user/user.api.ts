@@ -8,13 +8,13 @@ import {
 import { Api } from "../../api";
 
 class UserApi extends Api {
-    public constructor() {
+    public constructor () {
         super();
         this.registerUser = this.registerUser.bind(this);
         this.loginUser = this.loginUser.bind(this);
     }
 
-    public registerUser(user: RegisterCredentials): Promise<number> {
+    public registerUser (user: RegisterCredentials): Promise<number> {
         return this.requestMethod({
             method: POST,
             url: `http://localhost:3000/${process.env.ROUTE_REGISTER}`,
@@ -28,7 +28,7 @@ class UserApi extends Api {
             });
     }
 
-    public loginUser(user: LoginCredentials): Promise<UserState> {
+    public loginUser (user: LoginCredentials): Promise<UserState> {
         return this.requestMethod({
             method: POST,
             url: `http://localhost:3000/${process.env.ROUTE_LOGIN}`,

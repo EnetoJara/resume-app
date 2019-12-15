@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-export function encriptPassword(
+export function encriptPassword (
     password: string,
     salt: number
 ): Promise<string> {
@@ -12,7 +12,7 @@ export function encriptPassword(
         });
 }
 
-export function isEqualsPassword(
+export function isEqualsPassword (
     encrypted: string,
     text: string
 ): Promise<boolean> {

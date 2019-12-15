@@ -18,7 +18,7 @@ export const initUser = Object.freeze<UserState>({
     success: false,
 });
 
-function login(state: UserState, action: AppActions): UserState {
+function login (state: UserState, action: AppActions): UserState {
     const { payload } = action;
 
     return {
@@ -27,7 +27,7 @@ function login(state: UserState, action: AppActions): UserState {
     };
 }
 
-export function userReducer(
+export function userReducer (
     state: UserState = initUser,
     action: AppActions
 ): UserState {

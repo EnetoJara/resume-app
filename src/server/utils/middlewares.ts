@@ -13,7 +13,7 @@ import {
     validateUserRegistration,
 } from "./validator";
 
-export function logging(
+export function logging (
     err: Error,
     req: Request,
     res: Response,
@@ -23,7 +23,7 @@ export function logging(
     next(err);
 }
 
-export function clientErrorHandler(
+export function clientErrorHandler (
     err: Error,
     req: Request,
     res: Response,
@@ -36,16 +36,16 @@ export function clientErrorHandler(
     }
 }
 
-export function errorHandler(err: Error, req: Request, res: Response) {
+export function errorHandler (err: Error, req: Request, res: Response) {
     res.status(500).send({ error: err.message });
 }
 
-export function timeMiddleware(req: any, res: Response, next: NextFunction) {
+export function timeMiddleware (req: any, res: Response, next: NextFunction) {
     req.requestTime = Date.now();
     next();
 }
 
-export function validateRegister(
+export function validateRegister (
     req: Request,
     res: Response,
     next: NextFunction
@@ -72,7 +72,7 @@ export function validateRegister(
         );
     }
 }
-export function validatingLogin(
+export function validatingLogin (
     req: Request,
     res: Response,
     next: NextFunction

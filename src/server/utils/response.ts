@@ -38,13 +38,13 @@ export const apiResponse: ApiResponse = (
     });
 };
 
-export function successResponse(data): SuccessResponse {
+export function successResponse (data): SuccessResponse {
     return {
         success: true,
         data,
     };
 }
-export function failedResponse(data): FailedResponse {
+export function failedResponse (data): FailedResponse {
     return {
         success: false,
         data,

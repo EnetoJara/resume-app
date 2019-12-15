@@ -22,7 +22,7 @@ const initialState: AppState = {
 const root = document.getElementById("root");
 const store = configureStore(initialState);
 store.runSaga(rootSagas);
-function init(D: any) {
+function init (D: any) {
     render(
         <AppContainer>
             <Provider store={store}>

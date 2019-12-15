@@ -4,7 +4,7 @@ import { DB } from "../models/index";
 import { SkillsService, UserService } from "../services";
 import { validateRegister, validatingLogin } from "../utils/middlewares";
 
-export function routes(db: DB) {
+export function routes (db: DB) {
     const api = Router();
 
     const userController = new UserController(new UserService(db));

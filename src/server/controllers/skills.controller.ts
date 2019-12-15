@@ -7,7 +7,7 @@ import {
     successResponse,
 } from "../utils/response";
 import { isNumber } from "../utils/validator";
-import { logger } from "./../utils/logger";
+import { logger } from "../utils/logger";
 
 /**
  * @description Skills controller
@@ -17,13 +17,14 @@ import { logger } from "./../utils/logger";
  */
 export class SkillsController {
     private skillsService: SkillsService;
+
     /**
      * @description Creates an instance of skills controller.
      * @author `Ernesto Jara Olveda`
      * @constructor
      * @param {SkillsService} skillsService
      */
-    public constructor(skillsService: SkillsService) {
+    public constructor (skillsService: SkillsService) {
         /**
          * @description Skills serviced of skills controller
          * @private
@@ -49,7 +50,7 @@ export class SkillsController {
      * @param {NextFunction} `next`
      * @returns {Promise<Response>} `array` with all skills
      */
-    public async getSkills(
+    public async getSkills (
         req: Request,
         res: Response,
         next: NextFunction
@@ -82,7 +83,7 @@ export class SkillsController {
      * @param {NextFunction} `next`
      * @returns {Promise<Response>} `array` with all skills
      */
-    public async getSkillsTypeById(
+    public async getSkillsTypeById (
         req: Request,
         res: Response,
         next: NextFunction

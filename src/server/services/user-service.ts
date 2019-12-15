@@ -17,7 +17,7 @@ export class UserService {
      * @author Ernesto Jara Olveda
      * @param {DB} db
      */
-    public constructor(private db: DB) {
+    public constructor (private db: DB) {
         this.getUserByEmail = this.getUserByEmail.bind(this);
         this.save = this.save.bind(this);
         this.getAllUsers = this.getAllUsers.bind(this);
@@ -32,7 +32,7 @@ export class UserService {
      * @param {string} email
      * @returns {Bluebird<UserModel | null>} user object incase the email exists
      */
-    public getUserByEmail(email: string): Bluebird<UserModel | null> {
+    public getUserByEmail (email: string): Bluebird<UserModel | null> {
         return this.db.User.findOne({
             where: { email },
         }).then(saved => {
@@ -49,7 +49,7 @@ export class UserService {
      * @param {strin} email
      * @returns {number} returns 201 if the user is created and 204 if it was updated
      */
-    public async save(user: UserRegister): Promise<number> {
+    public async save (user: UserRegister): Promise<number> {
         if (user.id !== undefined) {
             await this.db.User.update(user, {
                 where: { [Op.and]: { id: user.id, email: user.email } },
@@ -62,7 +62,7 @@ export class UserService {
         return NO_CONTENT;
     }
 
-    public getAllUsers(): Bluebird<{ rows: UserModel[]; count: number }> {
+    public getAllUsers (): Bluebird<{ rows: UserModel[]; count: number }> {
         return this.db.User.findAndCountAll({
             attributes: [
                 "id",

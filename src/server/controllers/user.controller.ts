@@ -15,7 +15,7 @@ import {
     failedResponse,
     successResponse,
 } from "../utils/response";
-import { logger } from "./../utils/logger";
+import { logger } from "../utils/logger";
 
 /**
  * @description User controller
@@ -30,7 +30,7 @@ export class UserController {
      * @constructor
      * @param {UserService} userService
      */
-    public constructor(private userService: UserService) {
+    public constructor (private userService: UserService) {
         this.register = this.register.bind(this);
         this.getAllUsers = this.getAllUsers.bind(this);
         this.login = this.login.bind(this);
@@ -49,7 +49,7 @@ export class UserController {
      * @param {NextFunction} next
      * @returns {Promise<Response>} a promise of EndPointResponse
      */
-    public async register(
+    public async register (
         req: Request,
         res: Response,
         next: NextFunction
@@ -103,7 +103,7 @@ export class UserController {
      * @param {NextFunction} next
      * @returns {Promise<Response>} a promise of EndPointResponse
      */
-    public async login(
+    public async login (
         req: Request,
         res: Response,
         next: NextFunction
@@ -182,7 +182,7 @@ export class UserController {
      * @param {NextFunction} next
      * @returns {Promise<Response>} a promise of EndPointResponse
      */
-    public async getAllUsers(
+    public async getAllUsers (
         req: Request,
         res: Response,
         next: NextFunction

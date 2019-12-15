@@ -4,7 +4,7 @@ import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { Home, Login, Register } from "../../containers";
 import { Header, Layout } from "../../hoc";
 
-function Main(): ReactElement {
+function Main (): ReactElement {
     return (
         <Layout>
             <BrowserRouter>
