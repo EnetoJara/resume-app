@@ -65,7 +65,7 @@
         "http-status-codes": "1.4.0",
         "js2xmlparser": "4.0.0",
         "jsonwebtoken": "8.5.1",
-        "lodash": "4.17.15",
+        "lodash": "4.17.21",
         "moment": "2.24.0",
         "passport": "0.4.0",
         "passport-jwt": "4.0.0",
