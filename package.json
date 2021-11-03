@@ -83,7 +83,7 @@
         "regenerator-runtime": "0.13.3",
         "reselect": "4.0.0",
         "sequelize": "5.21.2",
-        "validator": "12.1.0",
+        "validator": "13.7.0",
         "winston": "3.2.1"
     },
     "husky": {
