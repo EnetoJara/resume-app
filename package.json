@@ -58,7 +58,7 @@
         "core-js": "3.4.7",
         "cors": "2.8.5",
         "es6-promise": "4.2.8",
-        "express": "4.17.1",
+        "express": "4.17.3",
         "express-static-gzip": "2.0.5",
         "express-winston": "4.0.1",
         "helmet": "3.21.2",
