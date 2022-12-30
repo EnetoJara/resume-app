@@ -229,7 +229,7 @@
         "jest-resolve": "24.9.0",
         "jest-watch-typeahead": "0.4.2",
         "mini-css-extract-plugin": "0.8.0",
-        "mocha": "6.2.2",
+        "mocha": "10.2.0",
         "node-sass": "4.13.0",
         "nodemon": "2.0.1",
         "normalize.scss": "0.1.0",
